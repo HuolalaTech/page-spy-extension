@@ -1,3 +1,5 @@
+[English](./README_EN.md) | 中文
+
 # <img src="public/icons/icon_48.png" width="45" align="left" style="margin-right: 24px"> Pagespy
 
 PageSpy Browser Extension
@@ -11,7 +13,7 @@ PageSpy Browser Extension
 ## Install
 
 1. Download the [build.zip](./build.zip) and unpacked.
-2. Open your browser and visit the [chrome://extensions](chrome://extensions).
+2. Open your browser and visit the "chrome://extensions".
 3. Enable "Developer mode" in the top right corner.
 4. Click the "Load unpacked" in the top left corner.
 5. Select the unpacked "build" directory.
