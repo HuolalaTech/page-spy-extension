@@ -2,25 +2,25 @@ English | [中文](./README.md)
 
 # <img src="public/icons/icon_48.png" width="45" align="left" style="margin-right: 24px"> Pagespy
 
-PageSpy 浏览器扩展
+PageSpy Browser Extension
 
-## 功能特性
+## Features
 
-- 自动注入最新版本的 [HuolalaTech/page-spy](https://github.com/HuolalaTech/page-spy/) SDK；
-- 自动完成实例化操作；
-- 提供注入的域名配置规则；
+- Automatic injection the latest version of the [HuolalaTech/page-spy](https://github.com/HuolalaTech/page-spy/) SDK.
+- Automatic do the instantiation.
+- Provide domain rules configuration for injection.
 
-## 安装
+## Install
 
-1. 下载 [build.zip](./build.zip) 并解压；
-2. 打开浏览器并访问 "chrome://extensions"；
-3. 在页面右上角开启 "开发者模式"；
-4. 点击页面左上角的 "加载"；
-5. 选择解压后的 "build" 目录；
+1. Download the [build.zip](./build.zip) and unpacked.
+2. Open your browser and visit the "chrome://extensions".
+3. Enable "Developer mode" in the top right corner.
+4. Click the "Load unpacked" in the top left corner.
+5. Select the unpacked "build" directory.
 
-以上就是全部，希望你使用愉快 ❤️。
+That's all, enjoy it ❤️.
 
-## 贡献
+## Contribution
 
 ```bash
 git clone git@github.com:HuolalaTech/page-spy-extension.git && cd page-spy-extension
