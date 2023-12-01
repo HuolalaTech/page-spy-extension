@@ -1,6 +1,6 @@
 English | [中文](./README.md)
 
-# <img src="public/icons/icon_48.png" width="45" align="left" style="margin-right: 24px"> Pagespy
+# <img src="public/icons/icon_48.png" width="45" align="left" style="margin-right: 24px"> PageSpy Extension
 
 PageSpy Browser Extension
 
