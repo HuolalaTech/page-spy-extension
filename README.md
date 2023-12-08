@@ -12,7 +12,7 @@ PageSpy 浏览器扩展
 
 ## 安装
 
-1. 下载 [build.zip](./build.zip) 并解压；
+1. 下载 [build.tar.gz](./build.tar.gz) 并解压；
 2. 打开浏览器并访问 "chrome://extensions"；
 3. 在页面右上角开启 "开发者模式"；
 4. 点击页面左上角的 "加载"；
@@ -25,9 +25,17 @@ PageSpy 浏览器扩展
 ```bash
 git clone git@github.com:HuolalaTech/page-spy-extension.git && cd page-spy-extension
 
+# 安装依赖
 yarn install
 
+# 开发
 yarn watch
+
+# 构建
+yarn build
+
+# 一键打包
+yarn update
 ```
 
 ## License

@@ -1,6 +1,7 @@
 'use strict';
 
 import './popup.less';
+import { getVersion } from './version';
 
 (function () {
   const defaultValue = {
@@ -100,5 +101,8 @@ import './popup.less';
     });
   }
 
-  document.addEventListener('DOMContentLoaded', restoreCounter);
+  document.addEventListener('DOMContentLoaded', () => {
+    restoreCounter();
+    getVersion();
+  });
 })();
