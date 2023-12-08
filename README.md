@@ -1,8 +1,17 @@
 [English](./README_EN.md) | 中文
 
-# <img src="public/icons/icon_48.png" width="45" align="left" style="margin-right: 24px"> PageSpy Extension
+
+<p align="center">
+  <img src="public/icons/icon_48.png" height="80" />
+</p>
+
+<h1 align="center">PageSpy Extension</h1>
 
 PageSpy 浏览器扩展
+
+## 插件截图
+
+<img src="./screenshot.jpg" width="400" />
 
 ## 功能特性
 
