@@ -12,7 +12,7 @@ PageSpy Browser Extension
 
 ## Install
 
-1. Download the [build.zip](./build.zip) and unpacked.
+1. Download the [build.tar.gz](./build.tar.gz) and unpacked.
 2. Open your browser and visit the "chrome://extensions".
 3. Enable "Developer mode" in the top right corner.
 4. Click the "Load unpacked" in the top left corner.
