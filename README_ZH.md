@@ -15,7 +15,7 @@ PageSpy 浏览器扩展
 
 ## 插件截图
 
-<img src="./screenshot.jpg" width="400" />
+<img src="./.github/assets/screenshot.jpg" width="400" />
 
 ## 功能特性
 

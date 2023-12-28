@@ -13,6 +13,10 @@ English | [中文](./README_ZH.md)
 
 PageSpy Browser Extension
 
+## 插件截图
+
+<img src="./.github/assets/screenshot.jpg" width="400" />
+
 ## Features
 
 - Automatic injection the latest version of the [HuolalaTech/page-spy](https://github.com/HuolalaTech/page-spy/) SDK.
