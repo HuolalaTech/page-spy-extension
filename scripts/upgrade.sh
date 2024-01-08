@@ -4,7 +4,7 @@ root=$(pwd)
 
 yarn upgrade @huolala-tech/page-spy@latest
 
-cp "${root}/node_modules/@huolala-tech/page-spy/dist/index.min.js" "${root}/public/sdk/index.min.js"
+cp "${root}/node_modules/@huolala-tech/page-spy/dist/web/index.min.js" "${root}/public/sdk/index.min.js"
 
 yarn build
 
