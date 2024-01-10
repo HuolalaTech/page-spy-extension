@@ -19,10 +19,10 @@
   resolved "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@huolala-tech/page-spy@^1.4.10":
-  version "1.4.10"
-  resolved "https://registry-npm-next.huolala.work/@huolala-tech/page-spy/-/page-spy-1.4.10.tgz#d240d80b05db4dc26e50ba151323934284a90b53"
-  integrity sha1-0kDYCwXbTcJuULoVEyOTQoSpC1M=
+"@huolala-tech/page-spy@^1.5.7":
+  version "1.5.7"
+  resolved "https://registry-npm-next.huolala.work/@huolala-tech/page-spy/-/page-spy-1.5.7.tgz#a9f9aaa5ee6b8a38f8dfbc796e17454c445a7ffa"
+  integrity sha1-qfmqpe5rijj437x5bhdFTERaf/o=
   dependencies:
     "@babel/runtime" "^7.13.0"
     copy-to-clipboard "^3.3.1"
