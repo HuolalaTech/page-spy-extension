@@ -23,7 +23,8 @@ chrome.webNavigation.onCompleted.addListener((details) => {
     // 当前页面 URL
     const currentUrl = details.url;
     if (!result.pagespy) return;
-    const { rules, ...config } = result.pagespy;
+    const { rules, open, ...config } = result.pagespy;
+    if (open !== 'on') return
     if (!rules) return;
     const ruleReg = rules.split('\n').map((i) => new RegExp(i));
 
