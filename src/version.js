@@ -1,8 +1,8 @@
-import { version } from '@huolala-tech/page-spy/package.json';
+import packageInfo from '@huolala-tech/page-spy/package.json';
 
 export async function getVersion() {
   const curVersion = document.querySelector('.version .current');
-  curVersion.textContent = version;
+  curVersion.textContent = packageInfo.version;
 
   const latestVersion = document.querySelector('.version .latest');
   try {
