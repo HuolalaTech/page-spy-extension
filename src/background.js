@@ -24,8 +24,7 @@ chrome.webNavigation.onCompleted.addListener((details) => {
     const currentUrl = details.url;
     if (!result.pagespy) return;
     const { rules, open, ...config } = result.pagespy;
-    if (open !== 'on') return
-    if (!rules) return;
+    if (open !== 'on' || !rules) return;
     const ruleReg = rules.split('\n').map((i) => new RegExp(i));
 
     const isMatched = ruleReg.some((i) => i.test(currentUrl));
