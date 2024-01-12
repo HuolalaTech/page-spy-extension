@@ -12,9 +12,9 @@ import { getVersion } from './version';
     project: '',
     title: '',
     autoRender: 'yes',
-    rules: ''
+    rules: '',
+    open: 'on'
   };
-
   const form = document.querySelector('#form');
   const deployUrlEl = document.querySelector('#deploy-url');
   const sslEl = document.querySelector('#enable-ssl');
@@ -25,6 +25,7 @@ import { getVersion } from './version';
   const autoRenderEl = document.querySelector('#yes');
   const manualRenderEl = document.querySelector('#no');
   const rulesEl = document.querySelector('#rules');
+  const openEl = document.querySelector('#enable-open');
 
   const storage = {
     get: (cb) => {
@@ -73,11 +74,12 @@ import { getVersion } from './version';
   });
 
   function setupFormFields(initialValue = defaultValue) {
-    const { ssl, api, clientOrigin, project, title, autoRender, rules } =
+    const { ssl, api, clientOrigin, project, title, autoRender, rules, open } =
       initialValue;
 
     deployUrlEl.value = initialValue['deploy-url'];
     sslEl.checked = ssl === 'on';
+    openEl.checked = open === 'on';
     apiEl.value = api;
     clientOriginEl.value = clientOrigin;
     projectEl.value = project;
