@@ -19,7 +19,7 @@
   "permissions": ["storage", "webNavigation", "scripting", "activeTab"],
   "web_accessible_resources": [
     {
-      "resources": ["sdk/index.min.js"],
+      "resources": ["sdk/index.min.js","sdk/plugins/data-harbor.min.js"],
       "matches": ["<all_urls>"]
     }
   ],

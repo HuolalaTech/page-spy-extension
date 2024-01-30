@@ -115,6 +115,55 @@
           <input type="hidden" name="open" value="off" />
           <input type="checkbox" id="enable-open" name="open" value="on" />
         </div>
+        <details>
+          <summary>
+            <b>DataHarbor插件</b>
+          </summary>
+          <div class="init-config">
+            <div class="form-item">
+              <label for="DataHarbor_open">
+                <b>是否开启</b>
+              </label>
+              <input type="hidden" name="DataHarbor_open" value="off" />
+              <input type="checkbox" id="DataHarbor_open" name="DataHarbor_open" value="on" />
+            </div>
+            <div class="form-item">
+              <label for="DataHarbor_maximum">
+                <code>maximum</code>
+              </label>
+              <input
+                type="text"
+                id="DataHarbor_maximum"
+                name="DataHarbor_maximum"
+                placeholder="缓存数据条数(默认0,不限制)"
+              />
+            </div>
+
+            <div class="form-item">
+              <label for="DataHarbor_saveAs">
+                <code>saveAs</code>
+              </label>
+              <input
+                type="text"
+                id="DataHarbor_saveAs"
+                name="DataHarbor_saveAs"
+                placeholder="指定缓存在什么位置,默认值: indexedDB"
+              />
+            </div>
+
+            <div class="form-item">
+              <label for="DataHarbor_caredData">
+                <code>caredData</code>
+              </label>
+              <input
+                type="text"
+                id="DataHarbor_caredData"
+                name="DataHarbor_caredData"
+                placeholder="指定应该收集哪些类型的数据(逗号','分隔)"
+              />
+            </div>
+          </div>
+        </details>
         <div class="form-item">
           <label></label>
           <button id="submit" type="submit">保 存</button>
