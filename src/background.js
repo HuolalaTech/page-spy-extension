@@ -30,7 +30,6 @@ chrome.webNavigation.onCompleted.addListener((details) => {
     if (open !== 'on' || !rules) return;
     const ruleReg = rules.split('\n').map((i) => new RegExp(i));
     const isMatched = ruleReg.some((i) => i.test(currentUrl));
-    console.log({ isMatched, currentUrl });
     if (isMatched) {
       chrome.action.setBadgeBackgroundColor({
         color: '#17ae49',
@@ -68,7 +67,7 @@ chrome.webNavigation.onCompleted.addListener((details) => {
           const DataHarborScript = {
             src: pluginSrcs[0],
             successCb: (script) => {
-              console.log('[PageSpy DataHarborPlugin] Render success');
+              console.log('[PageSpy DataHarborPlugin] 加载成功');
             },
             errorCb: (script) => {
               console.warn('[PageSpy DataHarborPlugin] 加载失败: ', e);
@@ -77,7 +76,7 @@ chrome.webNavigation.onCompleted.addListener((details) => {
           const RRWebScript = {
             src: pluginSrcs[1],
             successCb: (script) => {
-              console.log('[PageSpy RRWebPlugin ] Render success');
+              console.log('[PageSpy RRWebPlugin ] 加载成功');
             },
             errorCb: (script) => {
               console.warn('[PageSpy RRWebPlugin ] 加载失败: ', e);
@@ -97,7 +96,7 @@ chrome.webNavigation.onCompleted.addListener((details) => {
               createScript(
                 src,
                 (script) => {
-                  console.log('[PageSpy Extension] Render success');
+                  console.log('[PageSpy Extension] 加载成功');
                   const {
                     ssl,
                     api,
