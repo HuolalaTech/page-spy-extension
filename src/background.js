@@ -2,7 +2,8 @@
 
 const src = chrome.runtime.getURL("sdk/index.min.js");
 const dataHarborSrc = chrome.runtime.getURL("sdk/plugins/data-harbor.min.js");
-const pluginSrcs = [dataHarborSrc];
+const rrwebSrc = chrome.runtime.getURL("sdk/plugins/rrweb.min.js");
+const pluginSrcs = [dataHarborSrc, rrwebSrc];
 
 chrome.webNavigation.onCompleted.addListener((details) => {
   // 如果关键配置变更：删除缓存、刷新后应用新配置
@@ -45,80 +46,116 @@ chrome.webNavigation.onCompleted.addListener((details) => {
         target: { tabId: details.tabId },
         world: "MAIN",
         func: (src, config, pluginSrcs) => {
-          const { DataHarbor_open } = config;
+          const { DataHarbor_open, RRWeb_open } = config;
           const isDataHarborOpen = DataHarbor_open === "on";
-          function createScript(src, cb) {
-            const script = document.createElement("script");
-            script.src = src;
-            script.crossOrigin = "anonymous";
-            cb(script);
-            return script;
-          }
-          createScript(src, (script) => {
-            if (isDataHarborOpen) {
-              createScript(pluginSrcs[0], (script) => {
-                script.onerror = (e) => {
-                  console.warn("[PageSpy DataHarborPlugin] 加载失败: ", e);
-                };
-                document.head.appendChild(script);
-              });
-            }
-            script.onload = () => {
-              const {
-                ssl,
-                api,
-                clientOrigin,
-                project,
-                title,
-                autoRender,
-                DataHarbor_maximum,
-                DataHarbor_saveAs,
-                DataHarbor_caredData,
-              } = config;
-              const deployUrl = config["deploy-url"];
-              const enableSSL = ssl === "on";
-              const userCfg = {
-                api: "",
-                clientOrigin: "",
-                project: project || "default",
-                title: title || "--",
-                autoRender: autoRender === "yes",
-                enableSSL,
+          const isRRWebOpen = RRWeb_open === "on";
+          function createScript(src, successCb, errorCb) {
+            return new Promise((resolve, reject) => {
+              const script = document.createElement("script");
+              script.src = src;
+              script.crossOrigin = "anonymous";
+              script.onload = () => {
+                successCb(script);
+                resolve(script);
               };
-              const scheme = enableSSL ? "https://" : "http://";
-              if (deployUrl) {
-                const url = new URL(`${scheme}${deployUrl}`);
-                userCfg.api = url.host;
-                userCfg.clientOrigin = url.origin;
-              }
-              if (api) {
-                userCfg.api = api;
-              }
-              if (clientOrigin) {
-                userCfg.clientOrigin = clientOrigin;
-              }
-              if (isDataHarborOpen) {
-                console.log("[PageSpy DataHarborPlugin] Render success");
-                const config = {
-                  maximum: Number(DataHarbor_maximum),
-                  saveAs: DataHarbor_saveAs,
-                  caredData: DataHarbor_caredData.split(",").map((i) =>
-                    i.trim()
-                  ),
-                };
-                window.PageSpy.registerPlugin(
-                  new window.DataHarborPlugin(config)
-                );
-              }
-              window.$pageSpy = new window.PageSpy(userCfg);
-            };
-
-            script.onerror = (e) => {
+              script.onerror = (e) => {
+                errorCb(script);
+                reject(new Error("Failed to load script" + src));
+              };
+              document.head.appendChild(script);
+            });
+          }
+          const DataHarborScript = {
+            src: pluginSrcs[0],
+            successCb: (script) => {
+              console.log("[PageSpy DataHarborPlugin] Render success");
+            },
+            errorCb: (script) => {
+              console.warn("[PageSpy DataHarborPlugin] 加载失败: ", e);
+            },
+          };
+          const RRWebScript = {
+            src: pluginSrcs[1],
+            successCb: (script) => {
+              console.log("[PageSpy RRWebPlugin ] Render success");
+            },
+            errorCb: (script) => {
+              console.warn("[PageSpy RRWebPlugin ] 加载失败: ", e);
+            },
+          };
+          const scriptList = [];
+          if (isRRWebOpen) {
+            scriptList.push(RRWebScript);
+          }
+          if (isDataHarborOpen) {
+            scriptList.push(DataHarborScript);
+          }
+          Promise.all(
+            scriptList.map((i) => createScript(i.src, i.successCb, i.errorCb))
+          )
+            .then(() => {
+              createScript(
+                src,
+                (script) => {
+                  console.log("[PageSpy Extension] Render success");
+                  const {
+                    ssl,
+                    api,
+                    clientOrigin,
+                    project,
+                    title,
+                    autoRender,
+                    DataHarbor_maximum,
+                    DataHarbor_saveAs,
+                    DataHarbor_caredData,
+                  } = config;
+                  const deployUrl = config["deploy-url"];
+                  const enableSSL = ssl === "on";
+                  const userCfg = {
+                    api: "",
+                    clientOrigin: "",
+                    project: project || "default",
+                    title: title || "--",
+                    autoRender: autoRender === "yes",
+                    enableSSL,
+                  };
+                  const scheme = enableSSL ? "https://" : "http://";
+                  if (deployUrl) {
+                    const url = new URL(`${scheme}${deployUrl}`);
+                    userCfg.api = url.host;
+                    userCfg.clientOrigin = url.origin;
+                  }
+                  if (api) {
+                    userCfg.api = api;
+                  }
+                  if (clientOrigin) {
+                    userCfg.clientOrigin = clientOrigin;
+                  }
+                  if (isDataHarborOpen) {
+                    const config = {
+                      maximum: Number(DataHarbor_maximum),
+                      saveAs: DataHarbor_saveAs,
+                      caredData: DataHarbor_caredData.split(",").map((i) =>
+                        i.trim()
+                      ),
+                    };
+                    window.PageSpy.registerPlugin(
+                      new window.DataHarborPlugin(config)
+                    );
+                    if (isRRWebOpen) {
+                      window.PageSpy.registerPlugin(new window.RRWebPlugin());
+                    }
+                  }
+                  window.$pageSpy = new window.PageSpy(userCfg);
+                },
+                (script) => {
+                  console.warn("[PageSpy Extension] 加载失败: ", e);
+                }
+              );
+            })
+            .catch((e) => {
               console.warn("[PageSpy Extension] 加载失败: ", e);
-            };
-
-            document.head.appendChild(script);
-          });
+            });
         },
         args: [src, config, pluginSrcs],
       });

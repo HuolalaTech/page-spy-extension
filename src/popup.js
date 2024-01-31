@@ -18,6 +18,7 @@ import { getVersion } from "./version";
     DataHarbor_maximum: 0,
     DataHarbor_saveAs: "indexedDB",
     DataHarbor_caredData: "",
+    RRWeb_open: "off",
   };
   const form = document.querySelector("#form");
   const deployUrlEl = document.querySelector("#deploy-url");
@@ -37,6 +38,7 @@ import { getVersion } from "./version";
   const DataHarbor_caredDataEl = document.querySelector(
     "#DataHarbor_caredData"
   );
+  const RRWeb_openEl = document.querySelector("#RRWeb_open");
 
   const storage = {
     get: (cb) => {
@@ -101,6 +103,7 @@ import { getVersion } from "./version";
       DataHarbor_maximum,
       DataHarbor_saveAs,
       DataHarbor_caredData,
+      RRWeb_open
     } = initialValue;
     deployUrlEl.value = initialValue["deploy-url"];
     sslEl.checked = ssl === "on";
@@ -119,6 +122,7 @@ import { getVersion } from "./version";
     DataHarbor_maximumEl.value = DataHarbor_maximum;
     DataHarbor_saveAsEl.value = DataHarbor_saveAs;
     DataHarbor_caredDataEl.value = DataHarbor_caredData;
+    RRWeb_openEl.checked = RRWeb_open === "on";
   }
 
   function restoreCounter() {
