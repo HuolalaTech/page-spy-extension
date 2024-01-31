@@ -13,7 +13,12 @@ import { getVersion } from './version';
     title: '',
     autoRender: 'yes',
     rules: '',
-    open: 'on'
+    open: 'on',
+    dataHarborOpen: 'on',
+    dataHarborMaximum: 0,
+    dataHarborSaveAs: 'indexedDB',
+    dataHarborCaredData: '',
+    rrwebOpen: 'on'
   };
   const form = document.querySelector('#form');
   const deployUrlEl = document.querySelector('#deploy-url');
@@ -26,6 +31,12 @@ import { getVersion } from './version';
   const manualRenderEl = document.querySelector('#no');
   const rulesEl = document.querySelector('#rules');
   const openEl = document.querySelector('#enable-open');
+
+  const dataHarborOpenEl = document.querySelector('#dataHarborOpen');
+  const dataHarborMaximumEl = document.querySelector('#dataHarborMaximum');
+  const dataHarborSaveAsEl = document.querySelector('#dataHarborSaveAs');
+  const dataHarborcaredDataEl = document.querySelector('#dataHarborCaredData');
+  const rrwebOpenEl = document.querySelector('#rrwebOpen');
 
   const storage = {
     get: (cb) => {
@@ -64,7 +75,10 @@ import { getVersion } from './version';
         'clientOrigin',
         'project',
         'title',
-        'autoRender'
+        'autoRender',
+        'dataHarborMaximum',
+        'dataHarborSaveAs',
+        'dataHarborCaredData'
       ]);
       if (!noChanges) {
         chrome.runtime.sendMessage('remove-cache');
@@ -74,9 +88,21 @@ import { getVersion } from './version';
   });
 
   function setupFormFields(initialValue = defaultValue) {
-    const { ssl, api, clientOrigin, project, title, autoRender, rules, open } =
-      initialValue;
-
+    const {
+      ssl,
+      api,
+      clientOrigin,
+      project,
+      title,
+      autoRender,
+      rules,
+      open,
+      dataHarborOpen,
+      dataHarborMaximum,
+      dataHarborSaveAs,
+      dataHarborCaredData,
+      rrwebOpen
+    } = initialValue;
     deployUrlEl.value = initialValue['deploy-url'];
     sslEl.checked = ssl === 'on';
     openEl.checked = open === 'on';
@@ -90,6 +116,11 @@ import { getVersion } from './version';
       manualRenderEl.checked = true;
     }
     rulesEl.value = rules;
+    dataHarborOpenEl.checked = dataHarborOpen === 'on';
+    dataHarborMaximumEl.value = dataHarborMaximum;
+    dataHarborSaveAsEl.value = dataHarborSaveAs;
+    dataHarborcaredDataEl.value = dataHarborCaredData;
+    rrwebOpenEl.checked = rrwebOpen === 'on';
   }
 
   function restoreCounter() {

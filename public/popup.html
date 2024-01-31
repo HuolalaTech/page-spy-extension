@@ -115,6 +115,69 @@
           <input type="hidden" name="open" value="off" />
           <input type="checkbox" id="enable-open" name="open" value="on" />
         </div>
+        <details>
+          <summary style="padding-left: 7px;">
+            <b>DataHarbor 插件</b>
+          </summary>
+          <div class="init-config">
+            <div class="form-item">
+              <label for="dataHarborOpen">
+                <b>是否开启</b>
+              </label>
+              <input type="hidden" name="dataHarborOpen" value="off" />
+              <input type="checkbox" id="dataHarborOpen" name="dataHarborOpen" value="on" />
+            </div>
+            <div class="form-item">
+              <label for="dataHarborMaximum">
+                <code>maximum</code>
+              </label>
+              <input
+                type="text"
+                id="dataHarborMaximum"
+                name="dataHarborMaximum"
+                placeholder="缓存数据条数（默认0,不限制）"
+              />
+            </div>
+
+            <div class="form-item">
+              <label for="dataHarborSaveAs">
+                <code>saveAs</code>
+              </label>
+              <input
+                type="text"
+                id="dataHarborSaveAs"
+                name="dataHarborSaveAs"
+                placeholder="指定缓存位置,默认值: indexedDB"
+              />
+            </div>
+
+            <div class="form-item">
+              <label for="dataHarborCaredData">
+                <code>caredData</code>
+              </label>
+              <input
+                type="text"
+                id="dataHarborCaredData"
+                name="dataHarborCaredData"
+                placeholder="指定收集数据的类型（逗号','分隔）"
+              />
+            </div>
+          </div>
+        </details>
+        <details>
+          <summary>
+            <b>rrweb 插件</b>
+          </summary>
+          <div class="init-config">
+            <div class="form-item">
+              <label for="rrwebOpen">
+                <b>是否开启</b>
+              </label>
+              <input type="hidden" name="rrwebOpen" value="off" />
+              <input type="checkbox" id="rrwebOpen" name="rrwebOpen" value="on" />
+            </div>
+          </div>
+        </details>
         <div class="form-item">
           <label></label>
           <button id="submit" type="submit">保 存</button>
