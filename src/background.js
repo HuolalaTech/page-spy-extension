@@ -151,7 +151,7 @@ chrome.webNavigation.onCompleted.addListener((details) => {
                   }
                   window.$pageSpy = new window.PageSpy(userCfg);
                 },
-                (script) => {
+                (e) => {
                   console.warn('[PageSpy Extension] 加载失败: ', e);
                 }
               );
