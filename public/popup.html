@@ -9,6 +9,22 @@
     <div id="page-spy-ext">
       <form id="form">
         <div class="form-item">
+          <label for="enable-open">
+            <b>是否开启</b>
+          </label>
+          <input type="hidden" name="open" value="off" />
+          <input type="checkbox" id="enable-open" name="open" value="on" />
+        </div>
+
+        <div class="form-item">
+          <label for="enable-ssl">
+            <b>是否 https</b>
+          </label>
+          <input type="hidden" name="ssl" value="off" />
+          <input type="checkbox" id="enable-ssl" name="ssl" value="on" />
+        </div>
+
+        <div class="form-item">
           <label for="deploy-url">
             <b>服务所在地址</b>
           </label>
@@ -18,14 +34,6 @@
             name="deploy-url"
             placeholder="如 example.com"
           />
-        </div>
-
-        <div class="form-item">
-          <label for="enable-ssl">
-            <b>是否 https</b>
-          </label>
-          <input type="hidden" name="ssl" value="off" />
-          <input type="checkbox" id="enable-ssl" name="ssl" value="on" />
         </div>
 
         <details>
@@ -108,15 +116,9 @@
             rows="5"
           ></textarea>
         </div>
-        <div class="form-item">
-          <label for="enable-open">
-            <b>是否开启</b>
-          </label>
-          <input type="hidden" name="open" value="off" />
-          <input type="checkbox" id="enable-open" name="open" value="on" />
-        </div>
+        <hr />
         <details>
-          <summary style="padding-left: 7px;">
+          <summary style="padding-left: 7px">
             <b>DataHarbor 插件</b>
           </summary>
           <div class="init-config">
@@ -125,7 +127,12 @@
                 <b>是否开启</b>
               </label>
               <input type="hidden" name="dataHarborOpen" value="off" />
-              <input type="checkbox" id="dataHarborOpen" name="dataHarborOpen" value="on" />
+              <input
+                type="checkbox"
+                id="dataHarborOpen"
+                name="dataHarborOpen"
+                value="on"
+              />
             </div>
             <div class="form-item">
               <label for="dataHarborMaximum">
@@ -135,7 +142,7 @@
                 type="text"
                 id="dataHarborMaximum"
                 name="dataHarborMaximum"
-                placeholder="缓存数据条数（默认0,不限制）"
+                placeholder="缓存数据条数（默认 0，不限制）"
               />
             </div>
 
@@ -147,7 +154,7 @@
                 type="text"
                 id="dataHarborSaveAs"
                 name="dataHarborSaveAs"
-                placeholder="指定缓存位置,默认值: indexedDB"
+                placeholder="指定缓存位置，默认值：indexedDB"
               />
             </div>
 
@@ -159,7 +166,7 @@
                 type="text"
                 id="dataHarborCaredData"
                 name="dataHarborCaredData"
-                placeholder="指定收集数据的类型（逗号','分隔）"
+                placeholder="指定收集数据的类型（逗号 ',' 分隔）"
               />
             </div>
           </div>
@@ -174,7 +181,12 @@
                 <b>是否开启</b>
               </label>
               <input type="hidden" name="rrwebOpen" value="off" />
-              <input type="checkbox" id="rrwebOpen" name="rrwebOpen" value="on" />
+              <input
+                type="checkbox"
+                id="rrwebOpen"
+                name="rrwebOpen"
+                value="on"
+              />
             </div>
           </div>
         </details>
@@ -190,11 +202,10 @@
           <span>最新版本：<span class="latest">--</span></span>
         </p>
         <p class="version">
-          开源许可：<a
-            target="_blank"
-            href="https://opensource.org/licenses/MIT"
-            >MIT License</a
-          >
+          开源许可：
+          <a target="_blank" href="https://opensource.org/licenses/MIT">
+            MIT License
+          </a>
         </p>
         <p>Copyright @ 2022-2023 Blucas</p>
       </div>
