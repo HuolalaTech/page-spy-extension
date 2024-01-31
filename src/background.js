@@ -76,10 +76,10 @@ chrome.webNavigation.onCompleted.addListener((details) => {
           const rrwebScript = {
             src: pluginSrcs[1],
             successCb: (script) => {
-              console.log('[PageSpy RRWebPlugin ] 加载成功');
+              console.log('[PageSpy RRWebPlugin] 加载成功');
             },
             errorCb: (e) => {
-              console.warn('[PageSpy RRWebPlugin ] 加载失败: ', e);
+              console.warn('[PageSpy RRWebPlugin] 加载失败: ', e);
             }
           };
           const scriptList = [];
