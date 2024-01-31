@@ -14,11 +14,11 @@ import { getVersion } from './version';
     autoRender: 'yes',
     rules: '',
     open: 'on',
-    DataHarbor_open: 'off',
-    DataHarbor_maximum: 0,
-    DataHarbor_saveAs: 'indexedDB',
-    DataHarbor_caredData: '',
-    RRWeb_open: 'off',
+    dataHarborOpen: 'on',
+    dataHarborMaximum: 0,
+    dataHarborSaveAs: 'indexedDB',
+    dataHarborCaredData: '',
+    rrwebOpen: 'on'
   };
   const form = document.querySelector('#form');
   const deployUrlEl = document.querySelector('#deploy-url');
@@ -32,13 +32,11 @@ import { getVersion } from './version';
   const rulesEl = document.querySelector('#rules');
   const openEl = document.querySelector('#enable-open');
 
-  const DataHarbor_openEl = document.querySelector('#DataHarbor_open');
-  const DataHarbor_maximumEl = document.querySelector('#DataHarbor_maximum');
-  const DataHarbor_saveAsEl = document.querySelector('#DataHarbor_saveAs');
-  const DataHarbor_caredDataEl = document.querySelector(
-    '#DataHarbor_caredData'
-  );
-  const RRWeb_openEl = document.querySelector('#RRWeb_open');
+  const dataHarborOpenEl = document.querySelector('#dataHarborOpen');
+  const dataHarborMaximumEl = document.querySelector('#dataHarborMaximum');
+  const dataHarborSaveAsEl = document.querySelector('#dataHarborSaveAs');
+  const dataHarborcaredDataEl = document.querySelector('#dataHarborCaredData');
+  const rrwebOpenEl = document.querySelector('#rrwebOpen');
 
   const storage = {
     get: (cb) => {
@@ -49,13 +47,13 @@ import { getVersion } from './version';
     set: (value, cb = () => {}) => {
       chrome.storage.local.set(
         {
-          pagespy: value,
+          pagespy: value
         },
         () => {
           cb();
         }
       );
-    },
+    }
   };
 
   // 比较两个对象的指定键对应的值是否相同
@@ -78,9 +76,9 @@ import { getVersion } from './version';
         'project',
         'title',
         'autoRender',
-        'DataHarbor_maximum',
-        'DataHarbor_saveAs',
-        'DataHarbor_caredData',
+        'dataHarborMaximum',
+        'dataHarborSaveAs',
+        'dataHarborCaredData'
       ]);
       if (!noChanges) {
         chrome.runtime.sendMessage('remove-cache');
@@ -99,11 +97,11 @@ import { getVersion } from './version';
       autoRender,
       rules,
       open,
-      DataHarbor_open,
-      DataHarbor_maximum,
-      DataHarbor_saveAs,
-      DataHarbor_caredData,
-      RRWeb_open,
+      dataHarborOpen,
+      dataHarborMaximum,
+      dataHarborSaveAs,
+      dataHarborCaredData,
+      rrwebOpen
     } = initialValue;
     deployUrlEl.value = initialValue['deploy-url'];
     sslEl.checked = ssl === 'on';
@@ -118,16 +116,15 @@ import { getVersion } from './version';
       manualRenderEl.checked = true;
     }
     rulesEl.value = rules;
-    DataHarbor_openEl.checked = DataHarbor_open === 'on';
-    DataHarbor_maximumEl.value = DataHarbor_maximum;
-    DataHarbor_saveAsEl.value = DataHarbor_saveAs;
-    DataHarbor_caredDataEl.value = DataHarbor_caredData;
-    RRWeb_openEl.checked = RRWeb_open === 'on';
+    dataHarborOpenEl.checked = dataHarborOpen === 'on';
+    dataHarborMaximumEl.value = dataHarborMaximum;
+    dataHarborSaveAsEl.value = dataHarborSaveAs;
+    dataHarborcaredDataEl.value = dataHarborCaredData;
+    rrwebOpenEl.checked = rrwebOpen === 'on';
   }
 
   function restoreCounter() {
     storage.get((value) => {
-      console.log('value:', value);
       if (typeof value === 'undefined') {
         storage.set(defaultValue);
         setupFormFields(defaultValue);

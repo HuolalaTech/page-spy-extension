@@ -11,14 +11,14 @@ chrome.webNavigation.onCompleted.addListener((details) => {
     if (msg === 'remove-cache') {
       chrome.scripting.executeScript({
         target: {
-          tabId: details.tabId,
+          tabId: details.tabId
         },
         func: () => {
           sessionStorage.setItem(
             'page-spy-room',
             JSON.stringify({ usable: false })
           );
-        },
+        }
       });
     }
   });
@@ -32,22 +32,22 @@ chrome.webNavigation.onCompleted.addListener((details) => {
     const isMatched = ruleReg.some((i) => i.test(currentUrl));
     if (isMatched) {
       chrome.action.setBadgeBackgroundColor({
-        color: '#17ae49',
+        color: '#17ae49'
       });
       chrome.action.setBadgeText({
         tabId: details.tabId,
-        text: 'on',
+        text: 'on'
       });
       chrome.action.setBadgeTextColor({
-        color: 'white',
+        color: 'white'
       });
       chrome.scripting.executeScript({
         target: { tabId: details.tabId },
         world: 'MAIN',
         func: (src, config, pluginSrcs) => {
-          const { DataHarbor_open, RRWeb_open } = config;
-          const isDataHarborOpen = DataHarbor_open === 'on';
-          const isRRWebOpen = RRWeb_open === 'on';
+          const { dataHarborOpen, rrwebOpen } = config;
+          const isDataHarborOpen = dataHarborOpen === 'on';
+          const isRrwebOpen = rrwebOpen === 'on';
           function createScript(src, successCb, errorCb) {
             return new Promise((resolve, reject) => {
               const script = document.createElement('script');
@@ -58,36 +58,36 @@ chrome.webNavigation.onCompleted.addListener((details) => {
                 resolve(script);
               };
               script.onerror = (e) => {
-                errorCb(script);
+                errorCb(e);
                 reject(new Error('Failed to load script' + src));
               };
               document.head.appendChild(script);
             });
           }
-          const DataHarborScript = {
+          const dataHarborScript = {
             src: pluginSrcs[0],
             successCb: (script) => {
               console.log('[PageSpy DataHarborPlugin] 加载成功');
             },
-            errorCb: (script) => {
+            errorCb: (e) => {
               console.warn('[PageSpy DataHarborPlugin] 加载失败: ', e);
-            },
+            }
           };
-          const RRWebScript = {
+          const rrwebScript = {
             src: pluginSrcs[1],
             successCb: (script) => {
               console.log('[PageSpy RRWebPlugin ] 加载成功');
             },
-            errorCb: (script) => {
+            errorCb: (e) => {
               console.warn('[PageSpy RRWebPlugin ] 加载失败: ', e);
-            },
+            }
           };
           const scriptList = [];
-          if (isRRWebOpen) {
-            scriptList.push(RRWebScript);
+          if (isRrwebOpen) {
+            scriptList.push(rrwebScript);
           }
           if (isDataHarborOpen) {
-            scriptList.push(DataHarborScript);
+            scriptList.push(dataHarborScript);
           }
           Promise.all(
             scriptList.map((i) => createScript(i.src, i.successCb, i.errorCb))
@@ -104,9 +104,9 @@ chrome.webNavigation.onCompleted.addListener((details) => {
                     project,
                     title,
                     autoRender,
-                    DataHarbor_maximum,
-                    DataHarbor_saveAs,
-                    DataHarbor_caredData,
+                    dataHarborMaximum,
+                    dataHarborSaveAs,
+                    dataHarborCaredData
                   } = config;
                   const deployUrl = config['deploy-url'];
                   const enableSSL = ssl === 'on';
@@ -116,7 +116,7 @@ chrome.webNavigation.onCompleted.addListener((details) => {
                     project: project || 'default',
                     title: title || '--',
                     autoRender: autoRender === 'yes',
-                    enableSSL,
+                    enableSSL
                   };
                   const scheme = enableSSL ? 'https://' : 'http://';
                   if (deployUrl) {
@@ -132,16 +132,20 @@ chrome.webNavigation.onCompleted.addListener((details) => {
                   }
                   if (isDataHarborOpen) {
                     const config = {
-                      maximum: Number(DataHarbor_maximum),
-                      saveAs: DataHarbor_saveAs,
-                      caredData: DataHarbor_caredData.split(',').map((i) =>
-                        i.trim()
-                      ),
+                      maximum: Number(dataHarborMaximum) || 0,
+                      saveAs: dataHarborSaveAs || 'indexedDB',
+                      caredData: dataHarborCaredData
+                        ?.split(',')
+                        ?.map((i) => i.trim()) || [
+                        'console',
+                        'network',
+                        'rrweb-event'
+                      ]
                     };
                     window.PageSpy.registerPlugin(
                       new window.DataHarborPlugin(config)
                     );
-                    if (isRRWebOpen) {
+                    if (isRrwebOpen) {
                       window.PageSpy.registerPlugin(new window.RRWebPlugin());
                     }
                   }
@@ -156,12 +160,12 @@ chrome.webNavigation.onCompleted.addListener((details) => {
               console.warn('[PageSpy Extension] 加载失败: ', e);
             });
         },
-        args: [src, config, pluginSrcs],
+        args: [src, config, pluginSrcs]
       });
     } else {
       chrome.action.setBadgeText({
         tabId: details.tabId,
-        text: '',
+        text: ''
       });
     }
   });
