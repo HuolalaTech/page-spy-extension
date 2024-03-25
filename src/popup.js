@@ -16,7 +16,6 @@ import { getVersion } from './version';
     open: 'on',
     dataHarborOpen: 'on',
     dataHarborMaximum: 0,
-    dataHarborSaveAs: 'indexedDB',
     dataHarborCaredData: '',
     rrwebOpen: 'on'
   };
@@ -34,8 +33,7 @@ import { getVersion } from './version';
 
   const dataHarborOpenEl = document.querySelector('#dataHarborOpen');
   const dataHarborMaximumEl = document.querySelector('#dataHarborMaximum');
-  const dataHarborSaveAsEl = document.querySelector('#dataHarborSaveAs');
-  const dataHarborcaredDataEl = document.querySelector('#dataHarborCaredData');
+  const dataHarborCaredDataEl = document.querySelector('#dataHarborCaredData');
   const rrwebOpenEl = document.querySelector('#rrwebOpen');
 
   const storage = {
@@ -77,7 +75,6 @@ import { getVersion } from './version';
         'title',
         'autoRender',
         'dataHarborMaximum',
-        'dataHarborSaveAs',
         'dataHarborCaredData'
       ]);
       if (!noChanges) {
@@ -99,7 +96,6 @@ import { getVersion } from './version';
       open,
       dataHarborOpen,
       dataHarborMaximum,
-      dataHarborSaveAs,
       dataHarborCaredData,
       rrwebOpen
     } = initialValue;
@@ -118,8 +114,7 @@ import { getVersion } from './version';
     rulesEl.value = rules;
     dataHarborOpenEl.checked = dataHarborOpen === 'on';
     dataHarborMaximumEl.value = dataHarborMaximum;
-    dataHarborSaveAsEl.value = dataHarborSaveAs;
-    dataHarborcaredDataEl.value = dataHarborCaredData;
+    dataHarborCaredDataEl.value = dataHarborCaredData;
     rrwebOpenEl.checked = rrwebOpen === 'on';
   }
 
