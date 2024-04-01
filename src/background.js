@@ -99,6 +99,7 @@ chrome.webNavigation.onCompleted.addListener((details) => {
                   console.log('[PageSpy Extension] 加载成功');
                   const {
                     ssl,
+                    offline,
                     api,
                     clientOrigin,
                     project,
@@ -110,8 +111,10 @@ chrome.webNavigation.onCompleted.addListener((details) => {
                   } = config;
                   const deployUrl = config['deploy-url'];
                   const enableSSL = ssl === 'on';
+                  const isOffline = offline === 'on';
                   const userCfg = {
                     api: '',
+                    offline: isOffline,
                     clientOrigin: '',
                     project: project || 'default',
                     title: title || '--',
@@ -139,6 +142,8 @@ chrome.webNavigation.onCompleted.addListener((details) => {
                         ?.map((i) => i.trim()) || [
                         'console',
                         'network',
+                        'system',
+                        'storage',
                         'rrweb-event'
                       ]
                     };

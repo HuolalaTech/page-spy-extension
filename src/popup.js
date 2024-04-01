@@ -7,6 +7,7 @@ import { getVersion } from './version';
   const defaultValue = {
     'deploy-url': '',
     ssl: 'on',
+    offline: 'off',
     api: '',
     clientOrigin: '',
     project: '',
@@ -22,6 +23,7 @@ import { getVersion } from './version';
   const form = document.querySelector('#form');
   const deployUrlEl = document.querySelector('#deploy-url');
   const sslEl = document.querySelector('#enable-ssl');
+  const offlineEl = document.querySelector('#offline');
   const apiEl = document.querySelector('#api');
   const clientOriginEl = document.querySelector('#clientOrigin');
   const projectEl = document.querySelector('#project');
@@ -69,6 +71,7 @@ import { getVersion } from './version';
     storage.get((cache) => {
       const noChanges = isSameValue(cache, result, [
         'deploy-url',
+        'offline',
         'api',
         'clientOrigin',
         'project',
@@ -87,6 +90,7 @@ import { getVersion } from './version';
   function setupFormFields(initialValue = defaultValue) {
     const {
       ssl,
+      offline,
       api,
       clientOrigin,
       project,
@@ -102,6 +106,7 @@ import { getVersion } from './version';
     deployUrlEl.value = initialValue['deploy-url'];
     sslEl.checked = ssl === 'on';
     openEl.checked = open === 'on';
+    offlineEl.checked = offline === 'on'
     apiEl.value = api;
     clientOriginEl.value = clientOrigin;
     projectEl.value = project;
