@@ -21,8 +21,8 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
-    "@huolala-tech/page-spy-browser": "^1.8.0",
-    "@huolala-tech/page-spy-plugin-data-harbor": "^1.2.0",
-    "@huolala-tech/page-spy-plugin-rrweb": "^1.1.0"
+    "@huolala-tech/page-spy-browser": "^1.8.2",
+    "@huolala-tech/page-spy-plugin-data-harbor": "^1.2.2",
+    "@huolala-tech/page-spy-plugin-rrweb": "^1.1.2"
   }
 }
