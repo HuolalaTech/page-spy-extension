@@ -106,7 +106,6 @@ chrome.webNavigation.onCompleted.addListener((details) => {
                     title,
                     autoRender,
                     dataHarborMaximum,
-                    dataHarborSaveAs,
                     dataHarborCaredData
                   } = config;
                   const deployUrl = config['deploy-url'];
@@ -134,24 +133,27 @@ chrome.webNavigation.onCompleted.addListener((details) => {
                     userCfg.clientOrigin = clientOrigin;
                   }
                   if (isDataHarborOpen) {
+                    const caredData = dataHarborCaredData
+                      ? dataHarborCaredData.split(',')
+                      : [
+                          'console',
+                          'network',
+                          'system',
+                          'storage',
+                          'rrweb-event'
+                        ];
                     const config = {
-                      maximum: Number(dataHarborMaximum) || 0,
-                      saveAs: dataHarborSaveAs || 'indexedDB',
-                      caredData: dataHarborCaredData
-                        ?.split(',')
-                        ?.map((i) => i.trim()) || [
-                        'console',
-                        'network',
-                        'system',
-                        'storage',
-                        'rrweb-event'
-                      ]
+                      maximum: Number(dataHarborMaximum),
+                      caredData: caredData.reduce((acc, cur) => {
+                        acc[cur.trim()] = true;
+                        return acc;
+                      }, {})
                     };
-                    window.PageSpy.registerPlugin(
-                      new window.DataHarborPlugin(config)
-                    );
+                    window.$harbor = new window.DataHarborPlugin(config);
+                    window.PageSpy.registerPlugin(window.$harbor);
                     if (isRrwebOpen) {
-                      window.PageSpy.registerPlugin(new window.RRWebPlugin());
+                      window.$rrweb = new window.RRWebPlugin();
+                      window.PageSpy.registerPlugin(window.$rrweb);
                     }
                   }
                   window.$pageSpy = new window.PageSpy(userCfg);

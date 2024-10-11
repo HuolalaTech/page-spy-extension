@@ -16,7 +16,7 @@ import { getVersion } from './version';
     rules: '',
     open: 'on',
     dataHarborOpen: 'on',
-    dataHarborMaximum: 0,
+    dataHarborMaximum: 10 * 1024 * 1024,
     dataHarborCaredData: '',
     rrwebOpen: 'on'
   };
