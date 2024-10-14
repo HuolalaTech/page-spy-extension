@@ -1,5 +1,3 @@
-'use strict';
-
 const src = chrome.runtime.getURL('sdk/index.min.js');
 const dataHarborSrc = chrome.runtime.getURL('sdk/plugins/data-harbor.min.js');
 const rrwebSrc = chrome.runtime.getURL('sdk/plugins/rrweb.min.js');
@@ -14,15 +12,12 @@ chrome.webNavigation.onCompleted.addListener((details) => {
           tabId: details.tabId
         },
         func: () => {
-          sessionStorage.setItem(
-            'page-spy-room',
-            JSON.stringify({ usable: false })
-          );
+          sessionStorage.setItem('page-spy-room', JSON.stringify({ usable: false }));
         }
       });
     }
   });
-  chrome.storage.local.get('pagespy', function (result) {
+  chrome.storage.local.get('pagespy', function (result: { pagespy: I.FormFields }) {
     // 当前页面 URL
     const currentUrl = details.url;
     if (!result.pagespy) return;
@@ -44,11 +39,11 @@ chrome.webNavigation.onCompleted.addListener((details) => {
       chrome.scripting.executeScript({
         target: { tabId: details.tabId },
         world: 'MAIN',
-        func: (src, config, pluginSrcs) => {
-          const { dataHarborOpen, rrwebOpen } = config;
+        func: (src: string, config: I.FormFields, pluginSrcs: string[]) => {
+          const { dataHarborOpen, rrwebOpen } = config as I.FormFields;
           const isDataHarborOpen = dataHarborOpen === 'on';
           const isRrwebOpen = rrwebOpen === 'on';
-          function createScript(src, successCb, errorCb) {
+          function createScript(src: string, successCb: (s: HTMLScriptElement) => void, errorCb: (e: Event | string) => void) {
             return new Promise((resolve, reject) => {
               const script = document.createElement('script');
               script.src = src;
@@ -66,19 +61,19 @@ chrome.webNavigation.onCompleted.addListener((details) => {
           }
           const dataHarborScript = {
             src: pluginSrcs[0],
-            successCb: (script) => {
+            successCb: () => {
               console.log('[PageSpy DataHarborPlugin] 加载成功');
             },
-            errorCb: (e) => {
+            errorCb: (e: Event | string) => {
               console.warn('[PageSpy DataHarborPlugin] 加载失败: ', e);
             }
           };
           const rrwebScript = {
             src: pluginSrcs[1],
-            successCb: (script) => {
+            successCb: () => {
               console.log('[PageSpy RRWebPlugin] 加载成功');
             },
-            errorCb: (e) => {
+            errorCb: (e: Event | string) => {
               console.warn('[PageSpy RRWebPlugin] 加载失败: ', e);
             }
           };
@@ -89,25 +84,13 @@ chrome.webNavigation.onCompleted.addListener((details) => {
           if (isDataHarborOpen) {
             scriptList.push(dataHarborScript);
           }
-          Promise.all(
-            scriptList.map((i) => createScript(i.src, i.successCb, i.errorCb))
-          )
+          Promise.all(scriptList.map((i) => createScript(i.src, i.successCb, i.errorCb)))
             .then(() => {
               createScript(
                 src,
                 (script) => {
                   console.log('[PageSpy Extension] 加载成功');
-                  const {
-                    ssl,
-                    offline,
-                    api,
-                    clientOrigin,
-                    project,
-                    title,
-                    autoRender,
-                    dataHarborMaximum,
-                    dataHarborCaredData
-                  } = config;
+                  const { ssl, offline, api, clientOrigin, project, title, autoRender, dataHarborMaximum, dataHarborCaredData } = config;
                   const deployUrl = config['deploy-url'];
                   const enableSSL = ssl === 'on';
                   const isOffline = offline === 'on';
@@ -117,7 +100,7 @@ chrome.webNavigation.onCompleted.addListener((details) => {
                     clientOrigin: '',
                     project: project || 'default',
                     title: title || '--',
-                    autoRender: autoRender === 'yes',
+                    autoRender: autoRender === 'on',
                     enableSSL
                   };
                   const scheme = enableSSL ? 'https://' : 'http://';
@@ -133,21 +116,15 @@ chrome.webNavigation.onCompleted.addListener((details) => {
                     userCfg.clientOrigin = clientOrigin;
                   }
                   if (isDataHarborOpen) {
-                    const caredData = dataHarborCaredData
+                    const caredData: string[] = dataHarborCaredData
                       ? dataHarborCaredData.split(',')
-                      : [
-                          'console',
-                          'network',
-                          'system',
-                          'storage',
-                          'rrweb-event'
-                        ];
+                      : ['console', 'network', 'system', 'storage', 'rrweb-event'];
                     const config = {
                       maximum: Number(dataHarborMaximum),
                       caredData: caredData.reduce((acc, cur) => {
                         acc[cur.trim()] = true;
                         return acc;
-                      }, {})
+                      }, {} as Record<string, boolean>)
                     };
                     window.$harbor = new window.DataHarborPlugin(config);
                     window.PageSpy.registerPlugin(window.$harbor);
@@ -167,7 +144,7 @@ chrome.webNavigation.onCompleted.addListener((details) => {
               console.warn('[PageSpy Extension] 加载失败: ', e);
             });
         },
-        args: [src, config, pluginSrcs]
+        args: [src, result.pagespy, pluginSrcs]
       });
     } else {
       chrome.action.setBadgeText({

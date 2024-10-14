@@ -8,3 +8,8 @@
 .DS_Store
 
 npm-debug.log*
+
+
+
+.nx/cache
+.nx/workspace-data
