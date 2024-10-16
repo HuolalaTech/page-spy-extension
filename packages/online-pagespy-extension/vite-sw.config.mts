@@ -7,7 +7,7 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: false,
     lib: {
-      entry: 'src/background/index.ts',
+      entry: 'background/index.ts',
       name: 'PAGESPY_EXTENSION_BACKGROUND_PLACEHOLDER',
       formats: ['iife'],
       fileName: (formats, entryName) => {
