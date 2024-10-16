@@ -182,7 +182,7 @@ const ConfigForm = () => {
         <textarea
           name="domainRules"
           id="domainRules"
-          rows={4}
+          rows={3}
           className="w-full px-3 py-2 border rounded-md"
           placeholder={t.matchingDomainRulesPlaceholder}
           value={config.domainRules}
@@ -192,13 +192,13 @@ const ConfigForm = () => {
 
       {/* 实例化参数（可选的） */}
       <details className="bg-white rounded-md shadow-sm">
-        <summary className="cursor-pointer p-4 flex justify-between items-center">
+        <summary className="cursor-pointer px-4 py-3 flex justify-between items-center">
           <span className="font-semibold text-stone-500">
             {t.instantiationParameters}
           </span>
           <DownSvg className="h-5 w-5 text-gray-500" />
         </summary>
-        <div className="p-4 space-y-4 border-t">
+        <div className="px-4 py-3 space-y-4 border-t">
           {/* offline */}
           <div className="flex items-center space-x-2">
             <input
@@ -293,13 +293,13 @@ const ConfigForm = () => {
 
       {/* 插件参数配置（可选的） */}
       <details className="bg-white rounded-md shadow-sm">
-        <summary className="cursor-pointer p-4 flex justify-between items-center">
+        <summary className="cursor-pointer px-4 py-3 flex justify-between items-center">
           <span className="font-semibold text-stone-500">
             {t.pluginConfigurations}
           </span>
           <DownSvg className="h-5 w-5 text-gray-500" />
         </summary>
-        <div className="p-4 space-y-6 border-t">
+        <div className="px-4 py-3 space-y-6 border-t">
           {/* DataHarborPlugin */}
           <div className="bg-gray-50 p-4 rounded-md border border-gray-200">
             <h3 className="font-medium text-lg mb-3 text-[#8e26d9]">

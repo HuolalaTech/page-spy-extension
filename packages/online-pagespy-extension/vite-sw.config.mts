@@ -2,9 +2,8 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   build: {
-    target: ['chrome100'],
     minify: false,
-    sourcemap: true,
+    sourcemap: false,
     emptyOutDir: false,
     lib: {
       entry: 'background/index.ts',

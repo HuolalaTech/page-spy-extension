@@ -1,7 +1,7 @@
 {
   "name": "online-pagespy-extension",
   "version": "0.0.1",
-  "description": "Real-Time debugging user pages with PageSpy.",
+  "description": "PageSpy extension for real-time debugging user pages.",
   "license": "MIT",
   "scripts": {
     "build:sw": "vite build -c vite-sw.config.mts",

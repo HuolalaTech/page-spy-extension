@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="public/icons/icon_48.png" height="80" />
+  <img src=".github/assets/logo.svg" height="150" />
 
-# PageSpy Extension
+# PageSpy Extensions
 
 <a href="https://www.producthunt.com/posts/pagespy?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-pagespy" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=429852&theme=light" alt="PageSpy - Remote&#0032;debugging&#0032;as&#0032;seamless&#0032;as&#0032;local&#0032;debugging&#0046; | Product Hunt" height="36" /></a> <a href="https://news.ycombinator.com/item?id=38679798" target="_blank"><img src="https://hackernews-badge.vercel.app/api?id=38679798" alt="PageSpy - Remote&#0032;debugging&#0032;as&#0032;seamless&#0032;as&#0032;local&#0032;debugging&#0046; | Hacker News" height="36" /></a>
 
@@ -11,25 +11,15 @@
 
 ## 介绍
 
-PageSpy 浏览器扩展
-
-## 插件截图
-
-<img src="./.github/assets/screenshot.jpg" width="400" />
-
-## 功能特性
-
-- 自动注入最新版本的 [HuolalaTech/page-spy](https://github.com/HuolalaTech/page-spy/) SDK；
-- 自动完成实例化操作；
-- 提供注入的域名配置规则；
+PageSpy 浏览器扩展 monorepo 仓库。
 
 ## 安装
 
-1. 下载 [build.tar.gz](./build.tar.gz) 并解压；
+1. 进入 [package/*](./packages/) 目录，下载你需要的 `dist.tar.gz` 并解压；
 2. 打开浏览器并访问 "chrome://extensions"；
 3. 在页面右上角开启 "开发者模式"；
 4. 点击页面左上角的 "加载"；
-5. 选择解压后的 "build" 目录；
+5. 选择解压后的 "dist" 目录；
 
 以上就是全部，希望你使用愉快 ❤️。
 
@@ -41,13 +31,7 @@ git clone git@github.com:HuolalaTech/page-spy-extension.git && cd page-spy-exten
 # 安装依赖
 yarn install
 
-# 开发
-yarn watch
-
-# 构建
-yarn build
-
-# 一键打包
+# 升级
 yarn update
 ```
 
