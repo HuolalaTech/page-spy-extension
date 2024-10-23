@@ -38,9 +38,6 @@ chrome.webNavigation.onCompleted.addListener((details) => {
         tabId: details.tabId,
         text: 'on'
       });
-      chrome.action.setBadgeTextColor({
-        color: 'white'
-      });
       chrome.scripting.executeScript({
         target: { tabId: details.tabId },
         world: 'MAIN',
