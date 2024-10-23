@@ -1,0 +1,13 @@
+{
+  "name": "Test",
+  "manifest_version": 3,
+  "version": "1.0",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "PageSpy",
+    "default_popup": "index.html"
+  },
+  "permissions": ["storage", "webNavigation", "scripting", "activeTab", "tabs"]
+}

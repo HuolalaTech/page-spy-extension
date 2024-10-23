@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "../../tsconfig.base.json"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": [
+      "chrome"
+    ]
+  },
+  "include": [
+    "popup",
+    "background",
+    "env.d.ts"
+  ]
+}

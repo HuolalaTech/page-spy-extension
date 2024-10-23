@@ -1,10 +1,16 @@
 # dependencies
-/node_modules
+node_modules
 
 # production
-/build
+build
+dist
 
 # misc
 .DS_Store
 
 npm-debug.log*
+
+
+
+.nx/cache
+.nx/workspace-data

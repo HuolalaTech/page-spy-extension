@@ -14,12 +14,12 @@
   },
   "action": {
     "default_title": "PageSpy",
-    "default_popup": "popup.html"
+    "default_popup": "index.html"
   },
-  "permissions": ["storage", "webNavigation", "scripting", "activeTab"],
+  "permissions": ["storage", "webNavigation", "scripting", "activeTab", "tabs"],
   "web_accessible_resources": [
     {
-      "resources": ["sdk/index.min.js","sdk/plugins/data-harbor.min.js","sdk/plugins/rrweb.min.js"],
+      "resources": ["sdk/index.min.js", "sdk/plugins/data-harbor.min.js", "sdk/plugins/rrweb.min.js"],
       "matches": ["<all_urls>"]
     }
   ],
