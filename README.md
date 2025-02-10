@@ -23,7 +23,7 @@ PageSpy browser extension monorepo.
 
 That's all, enjoy it ❤️.
 
-# Update
+## Update
 
 ```bash
 yarn update
