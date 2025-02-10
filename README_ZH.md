@@ -13,9 +13,9 @@
 
 PageSpy 浏览器扩展 monorepo 仓库。
 
-## 安装
+## 使用
 
-1. 进入 [package/*](./packages/) 目录，下载你需要的 `dist.tar.gz` 并解压；
+1. 进入 [package/*](./packages/) 目录，下载 `dist.tar.gz` 并解压；
 2. 打开浏览器并访问 "chrome://extensions"；
 3. 在页面右上角开启 "开发者模式"；
 4. 点击页面左上角的 "加载"；
@@ -23,7 +23,13 @@ PageSpy 浏览器扩展 monorepo 仓库。
 
 以上就是全部，希望你使用愉快 ❤️。
 
-## 贡献
+## 升级
+
+```bash
+yarn update
+```
+
+## 开发
 
 ```bash
 git clone git@github.com:HuolalaTech/page-spy-extension.git && cd page-spy-extension
@@ -31,8 +37,8 @@ git clone git@github.com:HuolalaTech/page-spy-extension.git && cd page-spy-exten
 # 安装依赖
 yarn install
 
-# 升级
-yarn update
+# 进入 packages/* 后执行
+yarn build
 ```
 
 ## License

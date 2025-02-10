@@ -23,6 +23,12 @@ PageSpy browser extension monorepo.
 
 That's all, enjoy it ❤️.
 
+# Update
+
+```bash
+yarn update
+```
+
 ## Development
 
 ```bash
@@ -31,8 +37,8 @@ git clone git@github.com:HuolalaTech/page-spy-extension.git && cd page-spy-exten
 # Install
 yarn install
 
-# Update
-yarn update
+# enter packages/* and run
+yarn build
 ```
 
 ## License
