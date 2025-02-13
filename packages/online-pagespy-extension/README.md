@@ -22,4 +22,4 @@ That's all, enjoy it ❤️.
 
 ## Screenshot
 
-<img src="../../.github/assets/extension-en.png" width="400" />
+<img src="../../.github/assets/extension-en.png" />

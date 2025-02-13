@@ -22,4 +22,4 @@
 
 ## 截图
 
-<img src="../../.github/assets/extension-zh.png" width="400" />
+<img src="../../.github/assets/extension-zh.png" />
