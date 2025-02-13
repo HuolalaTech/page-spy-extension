@@ -1,3 +1,5 @@
+[English](./README.md) | 中文
+
 ## 介绍
 
 使用 PageSpy 浏览器扩展实时调试用户页面。
@@ -20,4 +22,4 @@
 
 ## 截图
 
-<img src="../../.github/assets/screenshot.zh.png" width="400" />
+<img src="../../.github/assets/extension-zh.png" width="400" />

@@ -1,3 +1,5 @@
+English | [中文](./README_ZH.md)
+
 ## Intro
 
 PageSpy extension for real-time debugging user pages.
@@ -20,4 +22,4 @@ That's all, enjoy it ❤️.
 
 ## Screenshot
 
-<img src="../../.github/assets/screenshot.en.png" width="400" />
+<img src="../../.github/assets/extension-en.png" width="400" />
