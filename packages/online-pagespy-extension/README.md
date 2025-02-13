@@ -22,11 +22,11 @@ That's all, enjoy it ❤️.
 
 ## Screenshot
 
-<img src="../../.github/assets/extension-en.png" />
-
 <blockquote>
   <details>
     <summary>Usage Example: Debug Google</summary>
     <img src="../../.github/assets/debug-google.png" />
   </details>
 </blockquote>
+
+<img src="../../.github/assets/extension-en.png" />

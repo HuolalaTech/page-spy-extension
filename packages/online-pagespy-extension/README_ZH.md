@@ -22,11 +22,11 @@
 
 ## 截图
 
-<img src="../../.github/assets/extension-zh.png" />
-
 <blockquote>
   <details>
     <summary>参考示例：调试百度</summary>
     <img src="../../.github/assets/debug-baidu.png" />
   </details>
 </blockquote>
+
+<img src="../../.github/assets/extension-zh.png" />
