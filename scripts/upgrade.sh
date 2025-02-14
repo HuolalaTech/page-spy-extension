@@ -14,3 +14,4 @@ cp "${huolalaTechScope}/page-spy-plugin-data-harbor/dist/iife/index.min.js" "${o
 cp "${huolalaTechScope}/page-spy-plugin-rrweb/dist/iife/index.min.js" "${onlinePackage}/public/sdk/plugins/rrweb.min.js"
 yarn build
 tar -czvf dist.tar.gz "dist"
+zip -r dist.zip dist
