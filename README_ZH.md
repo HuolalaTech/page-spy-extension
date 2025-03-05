@@ -2,7 +2,7 @@
 
 ## 介绍
 
-使用 PageSpy 浏览器扩展实时调试用户页面。
+使用 PageSpy 浏览器扩展让调试用户页面变得简单。
 
 ## 特性
 
@@ -12,10 +12,10 @@
 
 ## 使用
 
-1. 下载 `dist.tar.gz` 并解压；
+1. 在 [release 页面](https://github.com/HuolalaTech/page-spy-extension/releases) 下载 `dist.tar.gz` 并解压；
 2. 打开浏览器并访问 "chrome://extensions"；
 3. 在页面右上角开启 "开发者模式"；
-4. 点击页面左上角的 "加载"；
+4. 点击页面左上角的 "加载已解压的扩展程序"；
 5. 选择解压后的 "dist" 目录；
 
 以上就是全部，希望你使用愉快 ❤️。

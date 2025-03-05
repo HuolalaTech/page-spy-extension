@@ -2,7 +2,7 @@ English | [中文](./README_ZH.md)
 
 ## Intro
 
-PageSpy extension for real-time debugging user pages.
+PageSpy extension for debugging user pages simply.
 
 ## Features
 
@@ -12,7 +12,7 @@ PageSpy extension for real-time debugging user pages.
 
 ## Usage
 
-1. Download the `dist.tar.gz` and unpacked.
+1. Download the `dist.tar.gz` in the [release page](https://github.com/HuolalaTech/page-spy-extension/releases).
 2. Open your browser and visit the "chrome://extensions".
 3. Enable "Developer mode" in the top right corner.
 4. Click the "Load unpacked" in the top left corner.
