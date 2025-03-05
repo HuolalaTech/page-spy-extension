@@ -23,7 +23,8 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="bg-gray-200 py-4 px-6 text-center text-sm text-gray-600">
+    
+    <footer className="bg-gray-200 py-4 px-6 text-center text-xs text-gray-600">
       <p>
         {t.version}: <b className={isLatest ? 'text-green-600' : 'text-red-600'}>{packageInfo.version}</b>
       </p>

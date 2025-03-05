@@ -15,7 +15,7 @@ async function handleInjectPageSpy(data: { url: string; tabId: number }) {
   const { pagespy } = (await chrome.storage.local.get('pagespy')) as {
     pagespy: I.Config;
   };
-  if (!pagespy || !pagespy.enabled || !pagespy.domainRules.trim()) return;
+  if (!pagespy || !pagespy.domainRules.trim()) return;
 
   const isMatched = pagespy.domainRules
     .split('\n')
@@ -37,18 +37,7 @@ async function handleInjectPageSpy(data: { url: string; tabId: number }) {
       target: { tabId },
       world: 'MAIN',
       func: (src: string, config: I.Config, plugins: string[]) => {
-        const {
-          enableSSL,
-          serviceAddress,
-          offline,
-          api,
-          clientOrigin,
-          project,
-          title,
-          autoRender,
-          dataHarborPlugin,
-          rrWebPlugin
-        } = config;
+        const { enableSSL, serviceAddress, offline, project, title } = config;
         function createScript(
           src: string,
           successCb: (s: HTMLScriptElement) => void,
@@ -71,29 +60,19 @@ async function handleInjectPageSpy(data: { url: string; tabId: number }) {
         }
         const dataHarborScript = {
           src: plugins[0],
-          successCb: () => {
-            console.log('[PageSpy DataHarborPlugin] 加载成功');
-          },
+          successCb: () => {},
           errorCb: (e: Event | string) => {
-            console.warn('[PageSpy DataHarborPlugin] 加载失败: ', e);
+            console.warn('[PageSpy Extension DataHarborPlugin] Load failed: ', e);
           }
         };
         const rrwebScript = {
           src: plugins[1],
-          successCb: () => {
-            console.log('[PageSpy RRWebPlugin] 加载成功');
-          },
+          successCb: () => {},
           errorCb: (e: Event | string) => {
-            console.warn('[PageSpy RRWebPlugin] 加载失败: ', e);
+            console.warn('[PageSpy Extension RRWebPlugin] Load failed: ', e);
           }
         };
-        const scriptList = [];
-        if (rrWebPlugin.enabled) {
-          scriptList.push(rrwebScript);
-        }
-        if (dataHarborPlugin.enabled) {
-          scriptList.push(dataHarborScript);
-        }
+        const scriptList = [dataHarborScript, rrwebScript];
         Promise.all(
           scriptList.map((i) => createScript(i.src, i.successCb, i.errorCb))
         )
@@ -101,15 +80,15 @@ async function handleInjectPageSpy(data: { url: string; tabId: number }) {
             createScript(
               src,
               () => {
-                console.log('[PageSpy Extension] 加载成功');
+                console.log('[PageSpy Extension] Loaded');
+
                 const userCfg = {
-                  api,
-                  clientOrigin,
-                  enableSSL,
+                  enableSSL: Boolean(+enableSSL),
                   offline,
                   project,
                   title,
-                  autoRender
+                  api: '',
+                  clientOrigin: ''
                 };
                 const scheme = enableSSL ? 'https://' : 'http://';
                 if (serviceAddress) {
@@ -117,26 +96,21 @@ async function handleInjectPageSpy(data: { url: string; tabId: number }) {
                   userCfg.api = url.host;
                   userCfg.clientOrigin = url.origin;
                 }
-                if (dataHarborPlugin.enabled) {
-                  const config = {
-                    maximum: Number(dataHarborPlugin.maximum)
-                  };
-                  window.$harbor = new window.DataHarborPlugin(config);
-                  window.PageSpy.registerPlugin(window.$harbor);
-                  if (rrWebPlugin.enabled) {
-                    window.$rrweb = new window.RRWebPlugin();
-                    window.PageSpy.registerPlugin(window.$rrweb);
-                  }
-                }
+
+                window.$harbor = new window.DataHarborPlugin();
+                window.$rrweb = new window.RRWebPlugin();
+                [window.$harbor, window.$rrweb].forEach((i) => {
+                  window.PageSpy.registerPlugin(i);
+                });
                 window.$pageSpy = new window.PageSpy(userCfg);
               },
               (e) => {
-                console.warn('[PageSpy Extension] 加载失败: ', e);
+                console.warn('[PageSpy Extension] Load failed: ', e);
               }
             );
           })
           .catch((e) => {
-            console.warn('[PageSpy Extension] 加载失败: ', e);
+            console.warn('[PageSpy Extension] Load failed: ', e);
           });
       },
       args: [pageSpyUrl, pagespy, plugins]

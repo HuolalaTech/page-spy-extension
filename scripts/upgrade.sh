@@ -4,7 +4,7 @@ root=$(pwd)
 huolalaTechScope="${root}/node_modules/@huolala-tech"
 onlinePackage="${root}/packages/online-pagespy-extension"
 
-yarn upgrade @huolala-tech/page-spy-browser@latest @huolala-tech/page-spy-plugin-data-harbor@latest @huolala-tech/page-spy-plugin-rrweb@latest
+yarn upgrade "@huolala-tech/*"
 
 # Build online-page-spy
 cd "${onlinePackage}" || exit

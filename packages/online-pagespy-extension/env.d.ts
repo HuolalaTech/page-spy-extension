@@ -19,23 +19,12 @@ declare global {
 
   declare namespace I {
     interface Config {
-      enabled: boolean;
+      offline: boolean;
       enableSSL: boolean;
       serviceAddress: string;
       domainRules: string;
-      offline: false;
-      api: string;
-      clientOrigin: string;
       project: string;
       title: string;
-      autoRender: boolean;
-      dataHarborPlugin: {
-        enabled: boolean;
-        maximum: string;
-      };
-      rrWebPlugin: {
-        enabled: boolean;
-      };
     }
 
     interface InjectMessage {
