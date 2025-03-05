@@ -1,0 +1,31 @@
+name: release
+
+on:
+  push:
+    branches:
+      - 'main'
+    # tags:
+    #   - "v*.*.*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build and tar
+        run: yarn build && tar -czf dist.tar.gz dist/
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist.tar.gz
+          generate_release_notes: true

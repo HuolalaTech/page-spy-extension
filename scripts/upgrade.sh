@@ -2,16 +2,12 @@
 
 root=$(pwd)
 huolalaTechScope="${root}/node_modules/@huolala-tech"
-onlinePackage="${root}/packages/online-pagespy-extension"
 
 yarn upgrade "@huolala-tech/*"
 
 # Build online-page-spy
-cd "${onlinePackage}" || exit
-mkdir -p "${onlinePackage}/public/sdk/plugins"
-cp "${huolalaTechScope}/page-spy-browser/dist/iife/index.min.js" "${onlinePackage}/public/sdk/index.min.js"
-cp "${huolalaTechScope}/page-spy-plugin-data-harbor/dist/iife/index.min.js" "${onlinePackage}/public/sdk/plugins/data-harbor.min.js"
-cp "${huolalaTechScope}/page-spy-plugin-rrweb/dist/iife/index.min.js" "${onlinePackage}/public/sdk/plugins/rrweb.min.js"
+mkdir -p "${root}/public/sdk/plugins"
+cp "${huolalaTechScope}/page-spy-browser/dist/iife/index.min.js" "${root}/public/sdk/index.min.js"
+cp "${huolalaTechScope}/page-spy-plugin-data-harbor/dist/iife/index.min.js" "${root}/public/sdk/plugins/data-harbor.min.js"
+cp "${huolalaTechScope}/page-spy-plugin-rrweb/dist/iife/index.min.js" "${root}/public/sdk/plugins/rrweb.min.js"
 yarn build
-tar -czvf dist.tar.gz "dist"
-zip -r dist.zip dist

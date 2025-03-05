@@ -20,6 +20,15 @@
       "DOM",
       "ESNext",
       "DOM.Iterable"
+    ],
+    "baseUrl": ".",
+    "types": [
+      "chrome"
     ]
-  }
+  },
+  "include": [
+    "popup",
+    "background",
+    "env.d.ts"
+  ]
 }
