@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "PageSpy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "default_locale": "en",
   "description": "__MSG_extensionDescription__",
   "icons": {
@@ -17,12 +17,28 @@
     "default_title": "PageSpy",
     "default_popup": "index.html"
   },
-  "permissions": ["storage", "webNavigation", "scripting", "activeTab", "tabs"],
+  "permissions": [
+    "storage",
+    "webNavigation",
+    "scripting",
+    "activeTab",
+    "tabs"
+  ],
   "web_accessible_resources": [
     {
-      "resources": ["sdk/index.min.js", "sdk/plugins/data-harbor.min.js", "sdk/plugins/rrweb.min.js"],
-      "matches": ["https://*/*", "http://*/*"]
+      "resources": [
+        "sdk/index.min.js",
+        "sdk/plugins/data-harbor.min.js",
+        "sdk/plugins/rrweb.min.js"
+      ],
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ]
     }
   ],
-  "host_permissions": ["https://*/*", "http://*/*"]
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ]
 }
