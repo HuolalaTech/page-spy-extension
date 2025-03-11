@@ -15,7 +15,8 @@
     "build:sw": "vite build -c vite-sw.config.mts",
     "build:page": "vite build",
     "build": "rm -rf dist && yarn build:sw && yarn build:page",
-    "update": "bash scripts/upgrade.sh"
+    "update": "bash scripts/upgrade.sh",
+    "postversion": "node scripts/sync-version.js && yarn update"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.277",
