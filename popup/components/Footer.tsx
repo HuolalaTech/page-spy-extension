@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../translations';
 import packageInfo from '@huolala-tech/page-spy-browser/package.json';
+import compareVersion from 'compare-version';
 
 const Footer: React.FC = () => {
   const { language } = useLanguage();
@@ -16,7 +17,7 @@ const Footer: React.FC = () => {
       ]);
       const info = await res.clone().json();
       const { latest } = info['dist-tags'];
-      setIsLatest(packageInfo.version === latest);
+      setIsLatest(compareVersion(packageInfo.version, latest) >= 0);
     } catch (e) {
       //
     }
