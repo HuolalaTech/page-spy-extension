@@ -93,7 +93,7 @@ async function handleInjectPageSpy(data: { url: string; tabId: number }) {
                 const scheme = userCfg.enableSSL ? 'https://' : 'http://';
                 if (serviceAddress) {
                   const url = new URL(`${scheme}${serviceAddress}`);
-                  userCfg.api = url.host;
+                  userCfg.api = url.pathname.endsWith("/") ? `${url.host}${url.pathname.slice(0,-1)}` : `${url.host}${url.pathname}`;
                   userCfg.clientOrigin = url.origin;
                 }
 
