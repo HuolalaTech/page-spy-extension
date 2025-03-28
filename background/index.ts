@@ -62,7 +62,10 @@ async function handleInjectPageSpy(data: { url: string; tabId: number }) {
           src: plugins[0],
           successCb: () => {},
           errorCb: (e: Event | string) => {
-            console.warn('[PageSpy Extension DataHarborPlugin] Load failed: ', e);
+            console.warn(
+              '[PageSpy Extension DataHarborPlugin] Load failed: ',
+              e
+            );
           }
         };
         const rrwebScript = {
@@ -92,8 +95,12 @@ async function handleInjectPageSpy(data: { url: string; tabId: number }) {
                 };
                 const scheme = userCfg.enableSSL ? 'https://' : 'http://';
                 if (serviceAddress) {
-                  const url = new URL(`${scheme}${serviceAddress}`);
-                  const address = url.pathname.endsWith("/") ? `${url.host}${url.pathname.slice(0,-1)}` : `${url.host}${url.pathname}`;
+                  const { pathname, host } = new URL(
+                    `${scheme}${serviceAddress}`
+                  );
+                  const address = pathname.endsWith('/')
+                    ? `${host}${pathname.slice(0, -1)}`
+                    : `${host}${pathname}`;
                   userCfg.api = address;
                   userCfg.clientOrigin = `${scheme}${address}`;
                 }

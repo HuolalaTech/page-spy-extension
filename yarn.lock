@@ -156,9 +156,9 @@
     "@babel/helper-plugin-utils" "^7.25.7"
 
 "@babel/runtime@^7.13.0":
-  version "7.26.9"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.26.9.tgz#aa4c6facc65b9cb3f87d75125ffd47781b475433"
-  integrity sha512-aA63XwOkcl4xxQa3HjPMqOP6LiK0ZDv3mUPYEFXkpHbaFjtGggE1A61FjFzJnB+p7/oy2gA8E+rcBNl/zC1tMg==
+  version "7.27.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.27.0.tgz#fbee7cf97c709518ecc1f590984481d5460d4762"
+  integrity sha512-VtPOkrdPHZsKc/clNqyi9WUA8TINkZ4cGk63UUE3u4pmB2k+ZMQRDuIOagv8UVd6j7k0T3+RRIb7beKTebNbcw==
   dependencies:
     regenerator-runtime "^0.14.0"
 
@@ -316,9 +316,9 @@
     "@huolala-tech/page-spy-types" "^2.1.3"
 
 "@huolala-tech/page-spy-browser@^2.1.6":
-  version "2.1.7"
-  resolved "https://registry.yarnpkg.com/@huolala-tech/page-spy-browser/-/page-spy-browser-2.1.7.tgz#0437f5d3df3ee5565893410d916fd043a774dd59"
-  integrity sha512-6iUylw55diUvnFOW/C3Y231NQEoN3h1hYxWASQOUOz4oSFYGPlR8WH4P28cLTnjNUrgFoifc8Zm+2MtV0vn6/Q==
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/@huolala-tech/page-spy-browser/-/page-spy-browser-2.1.9.tgz#7d748dd2603d71059bd229cc35b43184f8eec378"
+  integrity sha512-iUbJbOTgFG0J9hfCug/TVyiLFpjk7kf0OnhJX76SamPDT9WhZLankMGEP2YNs0vNfL0FWbaKE7CciloGX9b4RA==
   dependencies:
     "@babel/runtime" "^7.13.0"
     "@huolala-tech/page-spy-base" "^2.1.3"
@@ -327,9 +327,9 @@
     iseedeadpeople "^1.0.0"
 
 "@huolala-tech/page-spy-plugin-data-harbor@^2.1.4":
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/@huolala-tech/page-spy-plugin-data-harbor/-/page-spy-plugin-data-harbor-2.1.4.tgz#808a7851eb0ca101de309661a79de3d2483a4851"
-  integrity sha512-hNARoXLpTfBPJVKpDhsrCeNI4bmyDfqkZLEd6vpn2mdqHpisy6P86+6VJR8WQbR+xlDFn7x0mC+DjqVdjih0yA==
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/@huolala-tech/page-spy-plugin-data-harbor/-/page-spy-plugin-data-harbor-2.1.8.tgz#c7530803b6aad7422c20e730ea726e754830008a"
+  integrity sha512-JleCgaHiAuktcAV7DP9M4OTT7tXIFPGpKkI+Xxnm7I3hzqS7IUZrXsHLB+P6www8AS2W0Dq4ivIzAR1k/fIjNA==
   dependencies:
     "@babel/runtime" "^7.13.0"
     "@huolala-tech/page-spy-base" "^2.1.3"
