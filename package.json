@@ -1,6 +1,7 @@
 {
   "name": "page-spy-extension",
   "version": "1.0.2",
+  "type": "module",
   "description": "PageSpy extension for debugging web pages simply.",
   "license": "MIT",
   "author": {
@@ -12,9 +13,8 @@
     "url": "git+https://github.com/HuolalaTech/page-spy-extension.git"
   },
   "scripts": {
-    "build:sw": "vite build -c vite-sw.config.mts",
-    "build:page": "vite build",
-    "build": "rm -rf dist && yarn build:sw && yarn build:page",
+    "build": "rm -rf dist && node build.js",
+    "build:watch": "nodemon",
     "update": "bash scripts/upgrade.sh",
     "postversion": "node scripts/sync-version.js && yarn update"
   },
@@ -27,6 +27,7 @@
     "@vitejs/plugin-react": "^4.3.2",
     "autoprefixer": "^10.4.20",
     "less": "^4.2.0",
+    "nodemon": "^3.1.9",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.6.3",
@@ -34,13 +35,20 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
-    "@huolala-tech/page-spy-browser": "^2.1.6",
-    "@huolala-tech/page-spy-plugin-data-harbor": "^2.1.4",
-    "@huolala-tech/page-spy-plugin-rrweb": "latest",
+    "@huolala-tech/page-spy-browser": "^2.2.1",
+    "@huolala-tech/page-spy-plugin-data-harbor": "^2.2.1",
+    "@huolala-tech/page-spy-plugin-rrweb": "^2.2.1",
     "compare-version": "^0.1.2",
     "lodash-es": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-toastify": "^10.0.6"
+  },
+  "nodemonConfig": {
+    "ext": "ts,tsx,less",
+    "watch": [
+      "src"
+    ],
+    "exec": "node build.js"
   }
 }

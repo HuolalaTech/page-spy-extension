@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import DownSvg from '../assets/img/down.svg?react';
 import { useLanguage } from '../contexts/LanguageContext';
 import translations from '../translations';
-import { cloneDeep, isEqual, set } from 'lodash-es';
+import { isEqual } from 'lodash-es';
 import { toast } from 'react-toastify';
-
-type InputElement = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
 
 const defaultConfig: I.Config = {
   offline: true,
@@ -23,9 +20,7 @@ const ConfigForm = () => {
   const [config, setConfig] = useState(defaultConfig);
   useEffect(() => {
     chrome.storage.local.get(['pagespy'], (result) => {
-      if (!result.pagespy) {
-        chrome.storage.local.set({ pagespy: defaultConfig });
-      } else {
+      if (result.pagespy) {
         setConfig(result.pagespy);
       }
     });
@@ -34,96 +29,28 @@ const ConfigForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     try {
       e.preventDefault();
-
-      const form = e.target as HTMLFormElement;
-      const formData = new FormData(form);
-      const checkboxes =
-        form.querySelectorAll<HTMLInputElement>('[type="checkbox"]');
-
-      // merge the submitted value
-      const data: I.Config = [...formData.entries()].reduce((acc, cur) => {
-        const [key, value] = cur;
-        return set(acc, key, value);
-      }, cloneDeep(defaultConfig));
-
-      // handle checkboxes
-      checkboxes.forEach((ele) => {
-        set(data, ele.name, ele.checked);
-      });
-
       const cache = await chrome.storage.local.get(['pagespy']);
-      const noChanges = isEqual(cache.pagespy, data);
+      const noChanges = isEqual(cache.pagespy, config);
       if (noChanges) {
         toast.info(t.noChanges);
         return;
       }
 
-      await chrome.storage.local.set({ pagespy: data });
+      await chrome.storage.local.set({ pagespy: config });
       toast.success(t.updateSuccess);
-
-      const [tab] = await chrome.tabs.query({
-        active: true,
-        currentWindow: true
-      });
-      if (!tab) return;
-
-      const { id, url } = tab;
-      if (!id || !url) return;
-
-      const injectRules = data.domainRules
-        .split('\n')
-        .map((d) => {
-          const rule = d.trim();
-          if (!rule) return null;
-          return new RegExp(d.trim());
-        })
-        .filter(Boolean);
-
-      const matchCurrentTab = injectRules.some((r) => r!.test(tab.url!));
-
-      if (injectRules.length > 0 && matchCurrentTab) {
-        chrome.scripting.executeScript({
-          target: {
-            tabId: id
-          },
-          func: () => {
-            const isRunning = sessionStorage.getItem('page-spy-room');
-            if (isRunning) return;
-
-            window.location.reload();
-          }
-        });
-      } else {
-        chrome.scripting.executeScript({
-          target: {
-            tabId: id
-          },
-          func: () => {
-            const hasCache = sessionStorage.getItem('page-spy-room');
-            const hasPageSpy = document.querySelector('#__pageSpy');
-            if (hasCache || hasPageSpy) {
-              sessionStorage.removeItem('page-spy-room');
-              window.location.reload();
-            }
-          }
-        });
-      }
     } catch (e: any) {
       toast.error(e.message);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<InputElement>) => {
-    const { name, value, type } = e.target;
-    setConfig((prev: any) =>
-      set(
-        {
-          ...prev
-        },
-        name,
-        type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
-      )
-    );
+  const updateConfig = <T extends keyof I.Config>(
+    key: T,
+    value: I.Config[T]
+  ) => {
+    setConfig((prev: any) => ({
+      ...prev,
+      [key]: value
+    }));
   };
 
   return (
@@ -140,7 +67,7 @@ const ConfigForm = () => {
               type="checkbox"
               className="sr-only peer"
               name="offline"
-              onChange={handleChange}
+              onChange={(e) => updateConfig('offline', e.target.checked)}
               checked={config.offline}
             />
             <div
@@ -163,7 +90,9 @@ const ConfigForm = () => {
                 <select
                   name="enableSSL"
                   value={Number(config.enableSSL)}
-                  onChange={handleChange}
+                  onChange={(e) =>
+                    updateConfig('enableSSL', !!Number(e.target.value))
+                  }
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none 
                          focus:ring-2 focus:ring-[#9333EA] focus:border-transparent 
                          bg-white"
@@ -178,7 +107,7 @@ const ConfigForm = () => {
                 name="serviceAddress"
                 value={config.serviceAddress}
                 required={config.offline === false}
-                onChange={handleChange}
+                onChange={(e) => updateConfig('serviceAddress', e.target.value)}
                 placeholder="Example：pagespy.jikejishu.com"
                 className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none 
                        focus:ring-2 focus:ring-[#9333EA] focus:border-transparent"
@@ -194,7 +123,7 @@ const ConfigForm = () => {
             placeholder={t.matchingDomainRulesPlaceholder}
             value={config.domainRules}
             name="domainRules"
-            onChange={handleChange}
+            onChange={(e) => updateConfig('domainRules', e.target.value)}
             rows={4}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none 
                    focus:ring-2 focus:ring-[#9333EA] focus:border-transparent resize-none"
@@ -209,7 +138,7 @@ const ConfigForm = () => {
               type="text"
               name="project"
               value={config.project}
-              onChange={handleChange}
+              onChange={(e) => updateConfig('project', e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none 
                      focus:ring-2 focus:ring-[#9333EA] focus:border-transparent"
             />
@@ -221,7 +150,7 @@ const ConfigForm = () => {
               type="text"
               name="title"
               value={config.title}
-              onChange={handleChange}
+              onChange={(e) => updateConfig('title', e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none 
                      focus:ring-2 focus:ring-[#9333EA] focus:border-transparent"
             />

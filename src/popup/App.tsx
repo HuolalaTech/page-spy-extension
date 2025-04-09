@@ -8,7 +8,7 @@ function App() {
     <LanguageProvider>
       <div
         className="bg-gray-100 flex flex-col text-base"
-        style={{ width: '500px' }}
+        style={{ width: '400px' }}
       >
         <Header />
         <main className="flex-grow p-3">

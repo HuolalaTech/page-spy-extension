@@ -27,8 +27,7 @@
     ]
   },
   "include": [
-    "popup",
-    "background",
+    "src",
     "env.d.ts"
   ]
 }
