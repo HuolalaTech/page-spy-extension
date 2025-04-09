@@ -1,11 +1,15 @@
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+import fs from 'fs';
+import path from 'path';
+import { execSync } from 'child_process';
 
-const pkg = require(path.resolve(__dirname, '../package.json'));
+const root = process.cwd();
 
-const manifestPath = path.resolve(__dirname, '../public/manifest.json');
-const manifest = require(manifestPath);
+const pkg = JSON.parse(
+  fs.readFileSync(path.resolve(root, 'package.json'), 'utf8')
+);
+
+const manifestPath = path.resolve(root, 'public/manifest.json');
+const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 
 manifest.version = pkg.version;
 
