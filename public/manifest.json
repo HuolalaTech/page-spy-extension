@@ -10,20 +10,33 @@
     "48": "icons/icon_48.png",
     "128": "icons/icon_128.png"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["content/isolated.js"],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    },
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": [
+        "sdk/index.min.js",
+        "sdk/plugins/data-harbor.min.js",
+        "sdk/plugins/rrweb.min.js",
+        "content/index.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "sw/index.js"
   },
   "action": {
     "default_title": "PageSpy",
     "default_popup": "index.html"
   },
-  "permissions": [
-    "storage",
-    "webNavigation",
-    "scripting",
-    "activeTab",
-    "tabs"
-  ],
+  "permissions": ["storage", "webNavigation", "scripting", "activeTab", "tabs"],
   "web_accessible_resources": [
     {
       "resources": [
@@ -31,14 +44,8 @@
         "sdk/plugins/data-harbor.min.js",
         "sdk/plugins/rrweb.min.js"
       ],
-      "matches": [
-        "https://*/*",
-        "http://*/*"
-      ]
+      "matches": ["https://*/*", "http://*/*"]
     }
   ],
-  "host_permissions": [
-    "https://*/*",
-    "http://*/*"
-  ]
+  "host_permissions": ["https://*/*", "http://*/*"]
 }

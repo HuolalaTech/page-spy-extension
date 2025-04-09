@@ -3,7 +3,7 @@
 root=$(pwd)
 huolalaTechScope="${root}/node_modules/@huolala-tech"
 
-yarn upgrade -P "@huolala-tech/*" --L
+yarn upgrade @huolala-tech/page-spy-browser@latest @huolala-tech/page-spy-plugin-data-harbor@latest @huolala-tech/page-spy-plugin-rrweb@latest
 
 # Build online-page-spy
 mkdir -p "${root}/public/sdk/plugins"

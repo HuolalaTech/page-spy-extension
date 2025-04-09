@@ -4,7 +4,7 @@ const translations = {
     offline: 'Offline mode',
     matchingDomainRules: 'Matching Domain Name Rules',
     matchingDomainRulesPlaceholder:
-      'Enter domain rules for debugging, one per line, supports regex',
+      'Use regex to match the page origin to decide whether to inject PageSpy, split by newlines',
     saveConfiguration: 'Save Configuration',
     version: 'SDK Version',
     enable: 'Enable',
@@ -20,7 +20,7 @@ const translations = {
     offline: '离线模式',
     matchingDomainRules: '匹配域名规则',
     matchingDomainRulesPlaceholder:
-      '输入调试的域名规则，每行一条，支持正则表达式',
+      '使用正则表达式匹配页面域名，决定是否注入 PageSpy，多条规则请用换行符分隔',
     saveConfiguration: '保存配置',
     version: 'SDK 版本',
     noChanges: '配置未发生变化',
