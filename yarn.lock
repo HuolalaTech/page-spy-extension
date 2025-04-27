@@ -316,10 +316,10 @@
     "@huolala-tech/page-spy-types" "^2.2.1"
     zod "^3.24.2"
 
-"@huolala-tech/page-spy-browser@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-browser/-/page-spy-browser-2.2.1.tgz#ae512fc2a40d2f1bb988a8a0093df3ddfed26674"
-  integrity sha512-sW5CVktHzLx2x9e6bAVohqMU3Q3MCg4iho/Zfrljz/EN5qi1snaLjAHlxlLeiO9xHdTBZpaAZl9gl7EzCQHKpA==
+"@huolala-tech/page-spy-browser@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-browser/-/page-spy-browser-2.2.2.tgz#de5dc4f2f9c6d6f8acc73a8683f95d9eb70c2c7a"
+  integrity sha512-/zJ83RU6VMAFMof7rOOyQZEYm1GcvhOMGMTP9wlcUj4IgW8W6QjQN+BJyxqOHKwAII22tE96fYzZiXlLgwDWOQ==
   dependencies:
     "@babel/runtime" "^7.13.0"
     "@huolala-tech/page-spy-base" "^2.2.1"
@@ -327,10 +327,10 @@
     copy-to-clipboard "^3.3.1"
     iseedeadpeople "^1.0.0"
 
-"@huolala-tech/page-spy-plugin-data-harbor@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-plugin-data-harbor/-/page-spy-plugin-data-harbor-2.2.1.tgz#4c6d2c5f2d0d5031556c9c5f16b9b2ba5fc5b63e"
-  integrity sha512-BRvm6UcrpBGGNTwB18G2l7cXQyEDsAVhrSA1uN1ig7j5g9VmTFUlKmGvS23/NxUAdY3Gk0hRFxBrgJldp5/QVQ==
+"@huolala-tech/page-spy-plugin-data-harbor@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-plugin-data-harbor/-/page-spy-plugin-data-harbor-2.2.2.tgz#8a2e2089e0f8396da96d93395d6ac661305c5e4d"
+  integrity sha512-7S7x41GOWivLhQKyYxIYIHPlUwFQ0LTqZns2g7kB8SDF10OBjqD4oSmvqAcmovBJXB6nWgYUF6K0KOYKVYylEA==
   dependencies:
     "@babel/runtime" "^7.13.0"
     "@huolala-tech/page-spy-base" "^2.2.1"

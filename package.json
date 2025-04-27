@@ -35,8 +35,8 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
-    "@huolala-tech/page-spy-browser": "^2.2.1",
-    "@huolala-tech/page-spy-plugin-data-harbor": "^2.2.1",
+    "@huolala-tech/page-spy-browser": "^2.2.2",
+    "@huolala-tech/page-spy-plugin-data-harbor": "^2.2.2",
     "@huolala-tech/page-spy-plugin-rrweb": "^2.2.1",
     "compare-version": "^0.1.2",
     "lodash-es": "^4.17.21",
