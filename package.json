@@ -1,6 +1,6 @@
 {
   "name": "page-spy-extension",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "description": "PageSpy extension for debugging web pages simply.",
   "license": "MIT",
