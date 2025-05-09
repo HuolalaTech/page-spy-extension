@@ -1,3 +1,5 @@
+[![Chrome Web Store](./webstore.png)](https://chromewebstore.google.com/detail/pagespy/kpfigmbgeedkgnjnlpilghiffepahlmk)
+
 [English](./README.md) | 中文
 
 ## 介绍
@@ -11,6 +13,14 @@
 - 提供配置决定注入哪些页面；
 
 ## 使用
+
+### 直接安装
+
+> 记得给个好评哦~ 😉
+
+点击前往 [Chrome 应用商店](https://chromewebstore.google.com/detail/pagespy/kpfigmbgeedkgnjnlpilghiffepahlmk) 安装。
+
+### 手动安装
 
 1. 在 [release 页面](https://github.com/HuolalaTech/page-spy-extension/releases) 下载 `dist.tar.gz` 并解压；
 2. 打开浏览器并访问 "chrome://extensions"；

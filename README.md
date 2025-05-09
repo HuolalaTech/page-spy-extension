@@ -1,3 +1,5 @@
+[![Chrome Web Store](./webstore.png)](https://chromewebstore.google.com/detail/pagespy/kpfigmbgeedkgnjnlpilghiffepahlmk)
+
 English | [中文](./README_ZH.md)
 
 ## Intro
@@ -11,6 +13,14 @@ PageSpy extension for debugging user pages simply.
 - Provide domain rules configuration for injection.
 
 ## Usage
+
+### Install
+
+> Don't forget to leave a good review~ 😉
+
+Click to visit the [Chrome Web Store](https://chromewebstore.google.com/detail/pagespy/kpfigmbgeedkgnjnlpilghiffepahlmk) to install.
+
+### Manual
 
 1. Download the `dist.tar.gz` in the [release page](https://github.com/HuolalaTech/page-spy-extension/releases).
 2. Open your browser and visit the "chrome://extensions".
