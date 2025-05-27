@@ -308,51 +308,51 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.21.5.tgz#acad351d582d157bb145535db2a6ff53dd514b5c"
   integrity sha512-tQd/1efJuzPC6rCFwEvLtci/xNFcTZknmXs98FYDfGE4wP9ClFV98nyKrzJKVPMhdDnjzLhdUyMX4PsQAPjwIw==
 
-"@huolala-tech/page-spy-base@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-base/-/page-spy-base-2.2.1.tgz#4d8532b186b26378bdf8bcc1b5f6fd8a558ea7a7"
-  integrity sha512-5EsPiHlrIN7Kdbh+2kZJe+Dvuebojeea6FyGsPfEUzAZpmuGh331KwhxazzOfIJ8jZbKnpWdW0Q5f27nj5mqPA==
+"@huolala-tech/page-spy-base@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-base/-/page-spy-base-2.2.2.tgz#734c6af11565e3b807f33111085511cb273924d8"
+  integrity sha512-jJNI46ehyv2OmyTD0eSUn9JSQLTtYz40SI5pIsydHVv73GkIewLlJFDiVLCRGlqnnxpbsbEl1tQI8gpaSQqk+g==
   dependencies:
-    "@huolala-tech/page-spy-types" "^2.2.1"
+    "@huolala-tech/page-spy-types" "^2.2.2"
     zod "^3.24.2"
 
-"@huolala-tech/page-spy-browser@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-browser/-/page-spy-browser-2.2.2.tgz#de5dc4f2f9c6d6f8acc73a8683f95d9eb70c2c7a"
-  integrity sha512-/zJ83RU6VMAFMof7rOOyQZEYm1GcvhOMGMTP9wlcUj4IgW8W6QjQN+BJyxqOHKwAII22tE96fYzZiXlLgwDWOQ==
+"@huolala-tech/page-spy-browser@^2.2.4":
+  version "2.2.4"
+  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-browser/-/page-spy-browser-2.2.4.tgz#dcb0fd3c50c91141a2257e7fca737097f9e6f1fd"
+  integrity sha512-F5h6wEoe2cAStOTMaugyMeHj1LfWArayOvZJNfZm+Quf6lptpSIA7KwV3Zb6DhS2RX1UnYa/C9V+l5IMbG1w7w==
   dependencies:
     "@babel/runtime" "^7.13.0"
-    "@huolala-tech/page-spy-base" "^2.2.1"
-    "@huolala-tech/page-spy-types" "^2.2.1"
+    "@huolala-tech/page-spy-base" "^2.2.2"
+    "@huolala-tech/page-spy-types" "^2.2.2"
     copy-to-clipboard "^3.3.1"
     iseedeadpeople "^1.0.0"
 
-"@huolala-tech/page-spy-plugin-data-harbor@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-plugin-data-harbor/-/page-spy-plugin-data-harbor-2.2.2.tgz#8a2e2089e0f8396da96d93395d6ac661305c5e4d"
-  integrity sha512-7S7x41GOWivLhQKyYxIYIHPlUwFQ0LTqZns2g7kB8SDF10OBjqD4oSmvqAcmovBJXB6nWgYUF6K0KOYKVYylEA==
+"@huolala-tech/page-spy-plugin-data-harbor@^2.2.4":
+  version "2.2.4"
+  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-plugin-data-harbor/-/page-spy-plugin-data-harbor-2.2.4.tgz#2111e7bdba227f2bfd13a0ecc43dd983f76e8681"
+  integrity sha512-k35uYRDekkaNGFfCQDFsKgp6hOALXZ5zBHLumcxg3c60lWHh1NYNJxLG7E3Zf5qvfdXVlwjNY1w5dbgXXCgdBg==
   dependencies:
     "@babel/runtime" "^7.13.0"
-    "@huolala-tech/page-spy-base" "^2.2.1"
+    "@huolala-tech/page-spy-base" "^2.2.2"
     copy-to-clipboard "^3.3.3"
     fflate "^0.8.1"
 
-"@huolala-tech/page-spy-plugin-rrweb@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-plugin-rrweb/-/page-spy-plugin-rrweb-2.2.1.tgz#e60d12f62fe0d72578b22bdb026f300c59bb3ef9"
-  integrity sha512-iJgDGZ+XLSUPbPI2Y6x7/T8dI7zYnZYyP/VLzmstkINuAaPk55TaNg4yEMoDoVTfzDBAAPp9H7ZcvhNbnvVkhQ==
+"@huolala-tech/page-spy-plugin-rrweb@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-plugin-rrweb/-/page-spy-plugin-rrweb-2.2.2.tgz#439fb40991ff027ed98d7963200c4c7e59c1dd69"
+  integrity sha512-cu3zyJYSkBBqAbpm0F+6Yy+w8sryiYdamtuFMwxvQ/g5ilRR49fUHjmXuFuzZGoyY0AamxfDg82X2aWvYsu4Vg==
   dependencies:
     "@babel/runtime" "^7.13.0"
-    "@huolala-tech/page-spy-base" "^2.2.1"
-    "@huolala-tech/page-spy-types" "^2.2.1"
+    "@huolala-tech/page-spy-base" "^2.2.2"
+    "@huolala-tech/page-spy-types" "^2.2.2"
     rrweb "^2.0.0-alpha.4"
 
-"@huolala-tech/page-spy-types@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-types/-/page-spy-types-2.2.1.tgz#871651df324684effab0562cd7aaced635582f8a"
-  integrity sha512-5K+ZDaZXkdIfZ2vScTFalbzkqNekKAi8wax+PZ02ZsgcNSsp3p3pL95OrliTbGba5lqRq7ZLRdVhpumnV3oy0g==
+"@huolala-tech/page-spy-types@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-types/-/page-spy-types-2.2.2.tgz#d3872632ce81e3c0904e2fc8861b58793c6049fb"
+  integrity sha512-LOD+l8pc85yGncnr4z4o1WKqJ4e3Fe/sz5AUh3SqujVtSlzjlpdbxcbRKmgf5m5GEt+OXqsbZdAYjV6XRnp2IA==
   dependencies:
-    "@huolala-tech/page-spy-base" "^2.2.1"
+    "@huolala-tech/page-spy-base" "^2.2.2"
 
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
