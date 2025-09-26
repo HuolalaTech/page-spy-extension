@@ -308,51 +308,51 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.21.5.tgz#acad351d582d157bb145535db2a6ff53dd514b5c"
   integrity sha512-tQd/1efJuzPC6rCFwEvLtci/xNFcTZknmXs98FYDfGE4wP9ClFV98nyKrzJKVPMhdDnjzLhdUyMX4PsQAPjwIw==
 
-"@huolala-tech/page-spy-base@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-base/-/page-spy-base-2.2.2.tgz#734c6af11565e3b807f33111085511cb273924d8"
-  integrity sha512-jJNI46ehyv2OmyTD0eSUn9JSQLTtYz40SI5pIsydHVv73GkIewLlJFDiVLCRGlqnnxpbsbEl1tQI8gpaSQqk+g==
+"@huolala-tech/page-spy-base@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@huolala-tech/page-spy-base/-/page-spy-base-2.2.3.tgz#bc5b630eb59252cc6ac9e90758f6a8221c5c2955"
+  integrity sha512-WybEK3QvChvItoRfRk7MrRLn+xfSdlKtkrifvor3I99XVrN4sYHxZyRfUYDLDaH7hXLuc/ZoGMY9uWxs5i+dTQ==
   dependencies:
-    "@huolala-tech/page-spy-types" "^2.2.2"
+    "@huolala-tech/page-spy-types" "^2.2.3"
     zod "^3.24.2"
 
-"@huolala-tech/page-spy-browser@^2.2.4":
-  version "2.2.4"
-  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-browser/-/page-spy-browser-2.2.4.tgz#dcb0fd3c50c91141a2257e7fca737097f9e6f1fd"
-  integrity sha512-F5h6wEoe2cAStOTMaugyMeHj1LfWArayOvZJNfZm+Quf6lptpSIA7KwV3Zb6DhS2RX1UnYa/C9V+l5IMbG1w7w==
+"@huolala-tech/page-spy-browser@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/@huolala-tech/page-spy-browser/-/page-spy-browser-2.2.6.tgz#4251ef161a558d9f9d2e14f75aad2502f0ebdc61"
+  integrity sha512-NFTnmpV5G3Lx4qXZeDPvFxdPrpJsw5LWh7/m4BGY4wlmjy14DZFlmVtOU46+ywiM799jDUwsDEpxQ5NbZQRsqg==
   dependencies:
     "@babel/runtime" "^7.13.0"
-    "@huolala-tech/page-spy-base" "^2.2.2"
-    "@huolala-tech/page-spy-types" "^2.2.2"
+    "@huolala-tech/page-spy-base" "^2.2.3"
+    "@huolala-tech/page-spy-types" "^2.2.3"
     copy-to-clipboard "^3.3.1"
     iseedeadpeople "^1.0.0"
 
-"@huolala-tech/page-spy-plugin-data-harbor@^2.2.4":
-  version "2.2.4"
-  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-plugin-data-harbor/-/page-spy-plugin-data-harbor-2.2.4.tgz#2111e7bdba227f2bfd13a0ecc43dd983f76e8681"
-  integrity sha512-k35uYRDekkaNGFfCQDFsKgp6hOALXZ5zBHLumcxg3c60lWHh1NYNJxLG7E3Zf5qvfdXVlwjNY1w5dbgXXCgdBg==
+"@huolala-tech/page-spy-plugin-data-harbor@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/@huolala-tech/page-spy-plugin-data-harbor/-/page-spy-plugin-data-harbor-2.2.6.tgz#06194b7bf962fa92a32d974bfed026c82b5c910c"
+  integrity sha512-88uw/hG385c6TOFqEojKH1HV+VfiHSA8nUhw/YLYqWvZANfIYNKHhtKtexjzOy0z7805Gz0ChEI+pwl49MvJdA==
   dependencies:
     "@babel/runtime" "^7.13.0"
-    "@huolala-tech/page-spy-base" "^2.2.2"
+    "@huolala-tech/page-spy-base" "^2.2.3"
     copy-to-clipboard "^3.3.3"
     fflate "^0.8.1"
 
-"@huolala-tech/page-spy-plugin-rrweb@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-plugin-rrweb/-/page-spy-plugin-rrweb-2.2.2.tgz#439fb40991ff027ed98d7963200c4c7e59c1dd69"
-  integrity sha512-cu3zyJYSkBBqAbpm0F+6Yy+w8sryiYdamtuFMwxvQ/g5ilRR49fUHjmXuFuzZGoyY0AamxfDg82X2aWvYsu4Vg==
+"@huolala-tech/page-spy-plugin-rrweb@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@huolala-tech/page-spy-plugin-rrweb/-/page-spy-plugin-rrweb-2.2.3.tgz#e44579ab86fc59cb21fe84e02bca3116a75b1e06"
+  integrity sha512-BMNVDsxuHbl4oOWGMiiA99M0ZeiYOJYjO1K0S2TTSXWtjSGKWdROMegfSW3KDGHpIWr9Wf7eUeLCTl5RBVq2iA==
   dependencies:
     "@babel/runtime" "^7.13.0"
-    "@huolala-tech/page-spy-base" "^2.2.2"
-    "@huolala-tech/page-spy-types" "^2.2.2"
+    "@huolala-tech/page-spy-base" "^2.2.3"
+    "@huolala-tech/page-spy-types" "^2.2.3"
     rrweb "^2.0.0-alpha.4"
 
-"@huolala-tech/page-spy-types@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.npmjs.org/@huolala-tech/page-spy-types/-/page-spy-types-2.2.2.tgz#d3872632ce81e3c0904e2fc8861b58793c6049fb"
-  integrity sha512-LOD+l8pc85yGncnr4z4o1WKqJ4e3Fe/sz5AUh3SqujVtSlzjlpdbxcbRKmgf5m5GEt+OXqsbZdAYjV6XRnp2IA==
+"@huolala-tech/page-spy-types@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@huolala-tech/page-spy-types/-/page-spy-types-2.2.3.tgz#7b17466c418d994ce807b70aa2a53cd19b05a2d6"
+  integrity sha512-dyNnjM7y7MmlMwCnhf/xo/84/k2G0zDIUo7JYWpWHPs+pSsFOFIaHG3medC+brA4e6tZatbvcYbdzfKKFCGVfQ==
   dependencies:
-    "@huolala-tech/page-spy-base" "^2.2.2"
+    "@huolala-tech/page-spy-base" "^2.2.3"
 
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
@@ -1851,8 +1851,16 @@ source-map@~0.6.0:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-"string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
-  name string-width-cjs
+"string-width-cjs@npm:string-width@^4.2.0":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
+  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
+  dependencies:
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.1"
+
+string-width@^4.1.0:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -1870,8 +1878,14 @@ string-width@^5.0.1, string-width@^5.1.2:
     emoji-regex "^9.2.2"
     strip-ansi "^7.0.1"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
-  name strip-ansi-cjs
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
+  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
+  dependencies:
+    ansi-regex "^5.0.1"
+
+strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
