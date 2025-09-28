@@ -46,10 +46,7 @@
   },
   "permissions": [
     "storage",
-    "webNavigation",
-    "scripting",
-    "activeTab",
-    "tabs"
+    "webNavigation"
   ],
   "web_accessible_resources": [
     {
